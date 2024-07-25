@@ -1,5 +1,5 @@
 import { CardImgText, CardText } from "@/components";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { IoSearchOutline } from "react-icons/io5";
 
@@ -8,102 +8,67 @@ import { IoSearchOutline } from "react-icons/io5";
 
 export default function Home() {
 
-
   return (
 
     <>
 
-      {/* Section 1 */}
-      {/* 
-          //TODO: Revisar este parrafo que lleva links y cosas  
-      */}
-      <section className="mt-28 mb-12 grid grid-cols-2 gap-2 sm:px-14">
-
-        <div className="col-start-1 col-end-3">
-
-          <h1 className="antialiased text-5xl font-bold mb-10 text-gray-950 tracking-tight">
-            Bienvenido a ISTQB®
-          </h1>
-          <h2 className="text-lg font-semibold my-6 text-gray-800">
-            ISTQB® es el esquema de certificación líder a nivel mundial en el campo de las pruebas de software.
-          </h2>
-
-
-          <p className="leading-10 text-gray-600">
-            Hasta junio de 2023, ISTQB® ha administrado <span className="negrita">1,3 millones</span> de exámenes y emitido más de
-            <span className="negrita"> 957.000</span> certificaciones en más de <span className="negrita"> 130</span> países . Con su extensa red de proveedores de
-            capacitación acreditados , juntas de miembros y proveedores de exámenes , ISTQB® es uno de los esquemas de certificación
-            profesional independiente de proveedores más grandes y más establecidos del mundo.
+      <section className="welcome-section">
+        <div className="welcome-content">
+          <h2>Bienvenido a ISTQB®</h2>
+          <p>
+            ISTQB® es el esquema líder de certificación global en el campo de las pruebas de software.
+            Hasta junio de 2023, ISTQB® ha administrado 1,3 millones de exámenes y emitido más de 957k certificaciones en más de 130 países. Con su extensa red de Proveedores de Capacitación Acreditados, Juntas de Miembros y Proveedores de Exámenes, ISTQB® es uno de los esquemas de certificación profesional neutrales en proveedor más grandes y establecidos del mundo.
           </p>
-
-          <div className="flex">
-            <Link href="/certifications"
-              className="btn-primary my-8">
-              Nuestras certificaciones
-            </Link>
-
-            <a href="#workWithUs"
-              className="btn-outline my-8 mx-8">
-              Trabaja con nosotros
-            </a>
+          <p>
+            El vocabulario de ISTQB® es reconocido en la industria como el lenguaje por defecto en el campo de las pruebas de software y conecta a profesionales en todo el mundo.
+          </p>
+          <div className="welcome-buttons">
+            <Link href="/certifications" className="btn-primary">Nuestras Certificaciones</Link>
+            <Link href="/trabaja-con-nosotros" className="btn-secondary">Trabaja Con Nosotros</Link>
           </div>
-
-        </div>
-
-        <div className="col-end-7 col-span-2">
-          <Image
-            className="rounded-3xl shadow-sm"
-            src='/images/image.jpg'
-            alt='img'
-            width={600}
-            height={600}
-          />
         </div>
 
       </section >
 
 
 
-
-
-
-
       {/* Section 2 */}
-      <section className="py-20 sm:px-14 bg-gray-100 flex flex-col text-center" >
+      <section className="build-skills-section" >
+        <div className="container">
+          <h2 className="section-title">Build Your Testing Skills</h2>
 
-        <h2 className="subTitle">
-          Desarrolle Sus Habilidades De Prueba
-        </h2>
+          <div className="cards">
 
-        <div className="mt-10 grid grid-cols-3 gap-4">
+            <CardText
+              title="Find a Certification"
+              text="Explore key information and download syllabi and sample exams in our free knowledge base"
+              link="/certifications"
+              textLink="Our certifications"
+            />
 
-          <CardText
-            title="Encuentre una certificación"
-            text="Explore información clave y descargue programas de estudios y exámenes de muestra en nuestra base de conocimientos gratuita"
-            textLink="Nuestras certificaciones"
-            link="/certifications"
-          />
-          <CardText
-            title="Encuentre formación acreditada"
-            text="Elija entre más de 300 proveedores de formación acreditados líderes en todo el mundo"
-            textLink="Nuestros proveedores de formación acreditados"
-            link="/training/trainedProvided"
-          />
-          <CardText
-            title="Encontrar un examen"
-            text="Identifique proveedores de exámenes en su área que ofrezcan el examen de certificación seleccionado"
-            textLink="Nuestros proveedores de exámenes"
-            link="/training/examProvided"
-          />
-          <CardText
-            title="Consulte el Registro de candidatos exitosos (SCR)"
-            text="Explore la lista de personas certificadas"
-            textLink="Nuestro SCR"
-            link="#"
-          />
+            <CardText
+              title="Find Accredited Training"
+              text="Choose from more than 300 leading accredited training providers around the world"
+              link="/training/trainedProvided"
+              textLink="Accredited training providers"
+            />
 
+            <CardText
+              title="Find an Exam"
+              text="Identify exam providers in your area who offer your selected certification exam"
+              link="/training/examProvided"
+              textLink="Exam providers"
+            />
+
+            <CardText
+              title="Check out the Successful Candidate Register (SCR)"
+              text="Browse the list of certified individuals"
+              link="/scr"
+              textLink="Our SCR"
+            />
+
+          </div>
         </div>
-
       </section>
 
 

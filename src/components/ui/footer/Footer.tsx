@@ -4,18 +4,18 @@ import { IoLogoFacebook, IoLogoLinkedin, IoLogoTwitter, IoLogoYoutube } from "re
 
 
 
-
+ 
 export const Footer = () => {
     return (
-        <div className="w-full text-xs sm:px-14 py-10 flex justify-between">
+        <div className="w-full text-xs sm:px-14 py-10 flex justify-between bg-[#1e1e1e]">
 
 
             <div className="flex justify-between w-[70%]">
 
                 <div className="w-[25%]">
-                    <h4 className="text-sm text-red-700">Sobre nosotros</h4>
+                    <h4 className="text-sm text-[#007bff]">Sobre nosotros</h4>
                     {/* line separator */}
-                    <div className="w-full h-[2px] bg-red-700 mb-4" />
+                    <div className="w-full h-[2px] bg-[#007bff] mb-4" />
 
                     <div className="flex flex-col">
                         <Link
@@ -53,9 +53,9 @@ export const Footer = () => {
                 </div>
 
                 <div className="w-[25%]">
-                    <h4 className="text-sm text-red-700">Entrenamiento y exámenes</h4>
+                    <h4 className="text-sm text-[#007bff]">Entrenamiento y exámenes</h4>
                     {/* line separator */}
-                    <div className="w-full h-[2px] bg-red-700 mb-4" />
+                    <div className="w-full h-[2px] bg-[#007bff] mb-4" />
 
                     <div className="flex flex-col">
                         <Link
@@ -86,9 +86,9 @@ export const Footer = () => {
                 </div>
 
                 <div className="w-[25%]">
-                    <h4 className="text-sm text-red-700">Información</h4>
+                    <h4 className="text-sm text-[#007bff]">Información</h4>
                     {/* line separator */}
-                    <div className="w-full h-[2px] bg-red-700 mb-4" />
+                    <div className="w-full h-[2px] bg-[#007bff] mb-4" />
 
                     <div className="flex flex-col">
                         <Link
@@ -145,34 +145,34 @@ export const Footer = () => {
                     height={100}
                 />
 
-                <p>
+                <p className="text-gray-500">
                     2024 ISTQB asociación sin ánimo de lucro
                     47, Avenue des Arts | 1000 Bruselas | Bélgica | N° 0889.625.305
                 </p>
 
                 <div className="flex my-4">
-                    <p className="text-sm">Síganos</p>
+                    <p className="text-sm text-gray-500">Síganos</p>
 
                     <div className="ml-2 flex">
 
                         <Link href="#">
 
-                            <IoLogoFacebook size={25} className="text-blue-800 mr-2" />
+                            <IoLogoFacebook size={25} className="text-gray-500 mr-2" />
                         </Link>
 
                         <Link href="#">
 
-                            <IoLogoTwitter size={25} className="text-blue-800 mr-2" />
+                            <IoLogoTwitter size={25} className="text-gray-500 mr-2" />
                         </Link>
 
                         <Link href="#">
 
-                            <IoLogoLinkedin size={25} className="text-blue-800 mr-2" />
+                            <IoLogoLinkedin size={25} className="text-gray-500 mr-2" />
                         </Link>
 
                         <Link href="#">
 
-                            <IoLogoYoutube size={25} className="text-blue-800 mr-2" />
+                            <IoLogoYoutube size={25} className="text-gray-500 mr-2" />
                         </Link>
 
                     </div>
