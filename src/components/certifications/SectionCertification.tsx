@@ -12,7 +12,7 @@ export const SectionCertification = ({ category, certifications }: Props) => {
     return (
         <section id="esquema" className="mb-16">
 
-            <h4 className="text-xl font-bold text-gray-950 ">
+            <h4 className="text-xl font-bold subTitle ">
                 {category}
             </h4>
 

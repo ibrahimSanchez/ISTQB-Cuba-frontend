@@ -2,6 +2,7 @@
 export * from './ui/footer/Footer';
 
 export * from './ui/top-menu/TopMenu';
+export * from './ui/top-menu/optionUser';
 
 
 export * from './ui/card/CardText';

@@ -9,29 +9,29 @@ export default function About() {
 
       <h1 className="title mb-2">Sobre nosotros</h1>
       {/* line separator */}
-      <div className="w-full h-px bg-blue-950 mb-4" />
+      <div className="w-full h-1 bg-blue-950 mb-4"></div>
 
 
       <div className="my-8 flex flex-col">
 
-        <Link href="#esquema" className="underline text-gray-600 hover:text-blue-900 mb-3">
+        <Link href="#esquema" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
           Esquema de probador certificado
         </Link>
 
-        <Link href="#programas" className="underline text-gray-600 hover:text-blue-900 mb-3">
+        <Link href="#programas" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
           Programas de participación
         </Link>
 
-        <Link href="#codigoEtico" className="underline text-gray-600 hover:text-blue-900 mb-3">
+        <Link href="#codigoEtico" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
           Código ético
         </Link>
 
       </div>
-
+ 
 
       <div>
 
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           ISTQB® es el esquema de certificación líder a nivel mundial en el campo de las pruebas de software.
           ISTQB® estableció, y continúa evolucionando, el esquema de probador certificado reconocido
           internacionalmente, que es una cartera de certificaciones que desarrollan, amplían y validan
@@ -42,14 +42,14 @@ export default function About() {
           módulos dentro del esquema que ofrecen profundidad y especialización.
         </p>
 
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           Los módulos de flujo {"básicos"} son válidos para cualquier tecnología/metodología/dominio de aplicación
           y se basan en el nivel básico.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           La corriente {"Ágil"} se centra en prácticas de prueba específicas para la metodología Agile.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           La corriente {"Especialista"} proporciona una inmersión profunda en áreas que pueden basarse en
           características de calidad, enfoques de prueba específicos y actividades de prueba, o que agrupan
           conocimientos técnicos de prueba para ciertos dominios de la industria.
@@ -58,25 +58,13 @@ export default function About() {
       </div>
 
 
-      <section id="esquema" className="my-16">
-
-        <h4 className="text-2xl font-bold text-gray-950 mb-10">
-          Esquema de probador certificado
-        </h4>
-
-        <p>Hay que ver que se va a poner</p>
-
-      </section>
-
-
-
       <section id="programas" className="my-16">
 
-        <h4 className="text-2xl font-bold text-gray-950 mb-10">
+        <h4 className="text-2xl font-bold subTitle mb-10">
           Programas de participación
         </h4>
 
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           Involucrarse con la comunidad en general es inherente a las actividades de ISTQB®. Nuestra fuerte
           conexión con el mundo académico está facilitando el desarrollo de habilidades reconocidas por la
           industria dentro del plan de estudios académico y fortaleciendo nuestros vínculos con la investigación
@@ -91,15 +79,15 @@ export default function About() {
 
         <div className="my-4 flex flex-col">
 
-          <Link href="#esquema" className="underline text-gray-600 hover:text-blue-900 mb-3">
+          <Link href="#esquema" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
             Programa de socios
           </Link>
 
-          <Link href="#programas" className="underline text-gray-600 hover:text-blue-900 mb-3">
+          <Link href="#programas" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
             Academia
           </Link>
 
-          <Link href="#codigoEtico" className="underline text-gray-600 hover:text-blue-900 mb-3">
+          <Link href="#codigoEtico" className="underline text-gray-500 hover:text-[#053b5e] mb-3">
             Red de conferencias
           </Link>
 
@@ -112,46 +100,46 @@ export default function About() {
 
       <section id="codigoEtico" className="my-16">
 
-        <h4 className="text-2xl font-bold text-gray-950 mb-10">
+        <h4 className="text-2xl font-bold subTitle mb-10">
           Código ético
         </h4>
 
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           ISTQB®, al igual que otros organismos profesionales, incluidos ACM e IEEE, aboga por un código de
           ética como parte de nuestro compromiso con la profesión.
         </p>
 
-        <p className="leading-7 text-gray-600 mt-3">
+        <p className="leading-7 text-gray-300 mt-3">
           El ISTQB® define el siguiente código de ética:
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - PÚBLICO: Los probadores de software certificados actuarán de manera consistente en el interés público.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - CLIENTE Y EMPLEADOR: Los probadores de software certificados actuarán de manera que redunde en el mejor
           interés de su cliente y empleador, de conformidad con el interés público.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - PRODUCTO: los probadores de software certificados deben garantizar que los resultados que proporcionan
           (en los productos y sistemas que prueban) cumplan con los más altos estándares profesionales posibles.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - JUICIO - Los probadores de software certificados deberán mantener integridad e independencia en su juicio
           profesional.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - ADMINISTRACIÓN: Los gerentes y líderes de pruebas de software certificados deberán suscribir y promover
           un enfoque ético para la gestión de las pruebas de software.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - PROFESIÓN: Los probadores de software certificados promoverán la integridad y reputación de la profesión
           de manera consistente con el interés público.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - COLEGAS: Los probadores de software certificados deberán ser justos y apoyar a sus colegas, y promover
           la cooperación con los desarrolladores de software.
         </p>
-        <p className="leading-7 text-gray-600">
+        <p className="leading-7 text-gray-300">
           - AUTO - Los probadores de software certificados participarán en el aprendizaje permanente sobre la
           práctica de su profesión y promoverán un enfoque ético para la práctica de la profesión.
         </p>

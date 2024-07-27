@@ -2,8 +2,10 @@
 'use client';
 
 import { login } from '@/api';
+import { isAuth, setCookie } from '@/helper/manageCookie';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 
@@ -16,12 +18,15 @@ type Inputs = {
 
 export default function Page() {
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
+
   const styleInput = {
     correct: 'border-blue-200 bg-blue-50 focus:border-blue-600',
-    error: 'border-red-200 bg-red-50 focus:border-red-600'
+    error: 'border-red-700 bg-[#fff] focus:ring-red-600 text-black'
   };
 
-  const [showPassword, setShowPassword] = useState(false);
 
   const changeShowPassword = () => {
     setShowPassword(!showPassword);
@@ -36,33 +41,44 @@ export default function Page() {
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
 
-    const res = await login(data);
-    
-    console.log('has submit', data, res)
+    try {
+      const res = await login(data);
+      // console.log('has submit', res)
+
+      await setCookie('AUTH_TOKEN_KEY', res.data.token);
+      router.push('/')
+
+    } catch (error: any) {
+
+      console.log("msg:", error.response.data.msg)
+    }
   }
 
 
+  useEffect(() => {
+    if (isAuth()) router.push('/')
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen pt-32 sm:pt-40">
 
-      <h1 className="text-4xl mb-5">Iniciar</h1>
+      <h1 className="text-5xl mb-5">Iniciar</h1>
 
 
       <div className="flex flex-col">
 
         <form
           name='login'
-          className='flex flex-col'
+          className='flex flex-col '
           onSubmit={handleSubmit(onSubmit)}
         >
 
           {/* email */}
           <div className='mb-5'>
-            <label htmlFor="email" className='mt-4 mb-2'>Correo electrónico</label>
+            {/* <label htmlFor="email" className='mt-4 mb-2'>Correo electrónico</label> */}
 
             <input
-              className={`w-[100%] px-5 py-2 border rounded focus:outline-none mb-0
+              className={`px-4 py-2 rounded-full bg-gray-700 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500 border-2
               ${errors.email ? styleInput.error : styleInput.correct}`}
               type="text"
               placeholder='name@gmail.com'
@@ -79,13 +95,12 @@ export default function Page() {
             )}
           </div>
 
-
           {/* Password */}
           <div className='mb-5'>
-            <label htmlFor="password" className='mt-4 mb-2'>Contraseña</label>
+            {/* <label htmlFor="password" className='mt-4 mb-2'>Contraseña</label> */}
 
             <input
-              className={`w-[100%] px-5 py-2 border rounded focus:outline-none mb-0
+              className={`px-4 py-2 rounded-full bg-gray-700 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500 border-2
               ${errors.password ? styleInput.error : styleInput.correct}`}
               type={showPassword ? "text" : "password"}
               placeholder='password'
@@ -120,7 +135,9 @@ export default function Page() {
           </div>
 
 
-          <button className='btn-primary' >Iniciar</button>
+          <button
+            className='px-4 py-2 rounded-full bg-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500'
+          >Iniciar</button>
 
         </form>
 
@@ -134,7 +151,7 @@ export default function Page() {
 
         <Link
           href="/auth/new-account"
-          className="btn-secondary text-center">
+          className="px-4 py-2 rounded-full bg-[transparent] border border-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
           Crear una nueva cuenta
         </Link>
 
@@ -142,78 +159,3 @@ export default function Page() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// <div className="flex flex-col min-h-screen pt-32 sm:pt-52">
-
-// <h1 className="text-4xl mb-5">Ingresar</h1>
-
-// <div className="flex flex-col">
-
-//   <form
-//     className='flex flex-col'
-//     onSubmit={handleSubmit(onSubmit)}
-//   >
-
-//     <label htmlFor="email" className='mt-4 mb-2'>Correo electrónico</label>
-//     <input
-//       className="px-5 py-2 border border-green-200 bg-green-100 rounded mb-0 focus:outline-none focus:border-green-600"
-//       type="email"
-//       {...register("email", { required: true })}
-//       aria-invalid={errors.email ? "true" : "false"}
-//     />
-//     {errors.email?.type === "required" && (
-//       <p className="text-red-500 text-sm">El campo es requerido</p>
-//     )}
-
-
-//     <label htmlFor="email" className='mt-4 mb-2'>Contraseña</label>
-//     <input
-//       className="px-5 py-2 border border-green-200 bg-green-100 rounded mb-1 focus:outline-none focus:border-green-600"
-//       type="password"
-//       {...register("password", { required: true })}
-//       aria-invalid={errors.email ? "true" : "false"}
-//     />
-//     {errors.email?.type === "required" && (
-//       <p className="text-red-500 text-sm">El campo es requerido</p>
-//     )}
-
-
-//     <button
-
-//       className="btn-primary">
-//       Ingresar
-//     </button>
-
-//   </form>
-
-
-//   {/* divisor l ine */}
-//   <div className="flex items-center my-5">
-//     <div className="flex-1 border-t border-green-500"></div>
-//     <div className="px-2 text-green-800">O</div>
-//     <div className="flex-1 border-t border-green-500"></div>
-//   </div>
-
-//   <Link
-//     href="/auth/new-account"
-//     className="btn-secondary text-center">
-//     Crear una nueva cuenta
-//   </Link>
-
-// </div>
-// </div>

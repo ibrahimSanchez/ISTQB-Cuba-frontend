@@ -13,13 +13,13 @@ export default function Certifications() {
 
       <h1 className="title mb-2">Nuestras Certificaciones</h1>
       {/* line separator */}
-      <div className="w-full h-px bg-blue-950 mb-7" />
+      <div className="w-full h-1 bg-blue-950 mb-4"></div>
 
 
 
       <div className="mb-16">
 
-        <p className="leading-7 text-gray-600 mb-6">
+        <p className="leading-7 text-gray-300 mb-6">
           Ya sea que sea nuevo o ya esté establecido en la profesión de las pruebas, la certificación ISTQB ®
           lo respaldará a lo largo de su carrera. Para los empleadores, el esquema de Probador Certificado
           ISTQB ® lo ayudará a desarrollar y validar las habilidades de su equipo y respaldará el reclutamiento.
@@ -28,7 +28,7 @@ export default function Certifications() {
         </p>
 
         <Link
-          className="underline text-gray-400 text-xs"
+          className="underline text-gray-500 text-xs"
           href="#"
         >
           Eche un vistazo al esquema de Probador Certificado y explore qué certificaciones respaldarán su carrera
@@ -65,7 +65,7 @@ export default function Certifications() {
 
 
 
-      <h4 className="text-xl font-bold text-gray-950">
+      <h4 className="text-xl font-bold text-[#053b5e]">
         Nivel experto
       </h4>
 
@@ -76,7 +76,7 @@ export default function Certifications() {
 
 
 
-      <h4 className="text-xl font-bold text-gray-950">
+      <h4 className="text-xl font-bold text-[#053b5e]">
         Nivel experto
       </h4>
 

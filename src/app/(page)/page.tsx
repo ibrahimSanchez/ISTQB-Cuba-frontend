@@ -95,7 +95,7 @@ export default function Home() {
       {
         //TODO: Poner foto de fondo
       }
-      <section className="py-24 sm:px-14 bg-blue-300 flex flex-col text-center">
+      {/* <section className="py-24 sm:px-14 bg-blue-300 flex flex-col text-center">
 
         <h2 className="subTitle mb-10">
           Glosario ISTQB®
@@ -121,7 +121,7 @@ export default function Home() {
 
 
       </section>
-
+ */}
 
 
 
@@ -137,13 +137,13 @@ export default function Home() {
 
       {/* Section 5 */}
 
-      <section className="py-20 sm:px-14 flex flex-col text-center" id="workWithUs" >
+      <section className="py-20 sm:px-14 flex flex-col text-center section" id="workWithUs" >
 
         <h2 className="subTitle mb-6">
           Trabaja Con Nosotros Y Participa
         </h2>
 
-        <p className="leading-8 text-gray-600">
+        <p className="leading-8 text-gray-300">
           Hay varias oportunidades interesantes para que las organizaciones y las personas contribuyan al ISTQB®.
           Somos una comunidad colaborativa que trabaja junta en todo el mundo para lograr una visión común.
           Nuestros socios y contribuyentes demuestran un compromiso con la calidad y una pasión por las pruebas

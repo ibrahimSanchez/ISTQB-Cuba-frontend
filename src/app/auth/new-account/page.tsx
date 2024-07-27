@@ -1,11 +1,13 @@
 // import { titleFont } from '@/config/fonts';
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { newAccount } from '@/api';
+import { isAuth } from '@/helper/manageCookie';
+import { useRouter } from 'next/navigation';
 
 
 type Inputs = {
@@ -29,7 +31,7 @@ export default function Page() {
 
   const styleInput = {
     correct: 'border-blue-200 bg-blue-50 focus:border-blue-600',
-    error: 'border-red-200 bg-red-50 focus:border-red-600'
+    error: 'border-red-800 bg-[#fff] focus:ring-red-600 text-black'
   };
 
 
@@ -41,15 +43,20 @@ export default function Page() {
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     // todo hay q ver como manejar el asignar roles (esta x defecto el de usuario)
-    data.role = 'USER_ROLE';   
-   
-    const res = await newAccount(data); 
+    data.role = 'USER_ROLE';
+
+    const res = await newAccount(data);
     console.log('has submit', data, res);
   }
 
 
+  const router = useRouter();
 
+  useEffect(() => {
+    if (isAuth()) router.push('/')
+  }, []);
 
+  
   return (
     <div className="flex flex-col min-h-screen pt-32 sm:pt-40 mb-36">
 
@@ -65,10 +72,10 @@ export default function Page() {
 
           {/* name */}
           <div className='mb-5'>
-            <label htmlFor="email" className='mt-4 mb-2'>Nombre completo</label>
+            {/* <label htmlFor="email" className='mt-4 mb-2'>Nombre completo</label> */}
 
             <input
-              className={`w-[100%] px-5 py-2 border rounded focus:outline-none mb-0
+              className={`px-4 py-2 rounded-full bg-gray-700 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500 border-2
               ${errors.name ? styleInput.error : styleInput.correct}`}
               type="text"
               placeholder='nombre completo'
@@ -81,10 +88,10 @@ export default function Page() {
 
           {/* email */}
           <div className='mb-5'>
-            <label htmlFor="email" className='mt-4 mb-2'>Correo electrónico</label>
+            {/* <label htmlFor="email" className='mt-4 mb-2'>Correo electrónico</label> */}
 
             <input
-              className={`w-[100%] px-5 py-2 border rounded focus:outline-none mb-0
+              className={`px-4 py-2 rounded-full bg-gray-700 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500 border-2
               ${errors.email ? styleInput.error : styleInput.correct}`}
               type="text"
               placeholder='name@gmail.com'
@@ -104,10 +111,10 @@ export default function Page() {
 
           {/* Password */}
           <div className='mb-5'>
-            <label htmlFor="password" className='mt-4 mb-2'>Contraseña</label>
+            {/* <label htmlFor="password" className='mt-4 mb-2'>Contraseña</label> */}
 
             <input
-              className={`w-[100%] px-5 py-2 border rounded focus:outline-none mb-0
+              className={`px-4 py-2 rounded-full bg-gray-700 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500 border-2
               ${errors.password ? styleInput.error : styleInput.correct}`}
               type={showPassword ? "text" : "password"}
               placeholder='password'
@@ -142,7 +149,11 @@ export default function Page() {
           </div>
 
 
-          <button className='btn-primary' >Iniciar</button>
+          <button
+            className='px-4 py-2 rounded-full bg-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500'
+          >
+            Iniciar
+          </button>
 
         </form>
 
@@ -155,7 +166,7 @@ export default function Page() {
 
         <Link
           href="/auth/login"
-          className="btn-secondary text-center">
+          className="px-4 py-2 rounded-full bg-[transparent] border border-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
           Ingresar
         </Link>
 
@@ -163,24 +174,4 @@ export default function Page() {
     </div>
   );
 
-  // <label htmlFor="email">Nombre completo</label>
-  //   <input
-  //     className="px-5 py-2 border border-green-200 bg-green-100 rounded mb-5 focus:outline-none focus:border-green-600"
-  //     type="text" />
-
-  // <label htmlFor="email">Correo electrónico</label>
-  //   <input
-  //     className="px-5 py-2 border border-green-200 bg-green-100 rounded mb-5 focus:outline-none focus:border-green-600"
-  //     type="email" />
-
-  //   <label htmlFor="email">Contraseña</label>
-  //   <input
-  //     className="px-5 py-2 border border-green-200 bg-green-100 rounded mb-5 focus:outline-none focus:border-green-600"
-  //     type="email" />
-
-  //   <button
-
-  //     className="btn-primary">
-  //     Crear cuenta
-  //   </button>
 }

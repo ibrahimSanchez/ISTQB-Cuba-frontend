@@ -79,9 +79,7 @@ body {
 }
 
 .gradient-card {
-  background: linear-gradient(to left,
-      transparent,
-      #3a8bba) #92ace4
+  background: linear-gradient(to left, transparent, #145b84) #1e1e1e;
 }
 
 
@@ -100,11 +98,11 @@ body {
 }
 
 .title {
-  @apply text-5xl font-bold text-gray-800
+  @apply text-5xl font-bold text-[#053b5e]
 }
 
 .subTitle {
-  @apply text-4xl font-bold text-gray-800
+  @apply text-4xl font-bold text-[#053b5e]
 }
 
 
@@ -271,6 +269,12 @@ body {
 
 /* WelcomeSection */
 
+.section {
+  background: linear-gradient(to right, #1e1e1e, #2a2a2a);
+  color: #fff;
+}
+
+
 .welcome-section {
   height: 100vh;
   display: flex;
@@ -420,7 +424,7 @@ body {
 .build-skills-section {
   background-color: #1e1e1e;
   color: #fff;
-  padding: 3rem 0 5rem  0;
+  padding: 3rem 0 5rem 0;
   text-align: center;
   /* opacity: var(--build-skills-opacity, 0); */
   /* Inicialmente oculto */
@@ -472,7 +476,13 @@ body {
   /* Transiciones suaves */
 }
 
-.card:hover {
+.cardAnimate {
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card:hover,
+.cardAnimate:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
@@ -497,24 +507,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.btn-primary {
-  align-self: center;
-  /* Centra el botón dentro de la tarjeta */
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 30px;
-  transition: background-color 0.3s, color 0.3s;
-  white-space: nowrap;
-  color: #007bff;
-  background-color: transparent;
-  border: 2px solid #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #007bff;
-  color: #fff;
-}
 
 @media (max-width: 1200px) {
   .cards .card {
