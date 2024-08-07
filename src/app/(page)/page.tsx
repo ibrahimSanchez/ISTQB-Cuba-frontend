@@ -1,17 +1,11 @@
 import { CardImgText, CardText } from "@/components";
-// import Image from "next/image";
 import Link from "next/link";
-import { IoSearchOutline } from "react-icons/io5";
-
-
 
 
 export default function Home() {
 
   return (
-
     <>
-
       <section className="welcome-section">
         <div className="welcome-content">
           <h2>Bienvenido a ISTQB®</h2>
@@ -27,9 +21,7 @@ export default function Home() {
             <Link href="/trabaja-con-nosotros" className="btn-secondary">Trabaja Con Nosotros</Link>
           </div>
         </div>
-
       </section >
-
 
 
       {/* Section 2 */}
@@ -72,70 +64,7 @@ export default function Home() {
       </section>
 
 
-
-
-
-      {
-        //TODO: Foto de los links DUDAAAAA
-      }
       {/* Section 3 */}
-      {/* <section className="pt-20 sm:px-14 bg-gray-100 flex flex-col text-center">
-
-        <h2 className="subTitle mb-4">
-          Mejora y certifica tus habilidades
-        </h2>
-
-        <p className="leading-10 text-gray-600 mb-8">
-          Eche un vistazo a nuestra cartera de certificaciones y explore lo que respaldará su carrera en las pruebas.
-        </p>
-      </section> */}
-
-
-      {/* Section 4 */}
-      {
-        //TODO: Poner foto de fondo
-      }
-      {/* <section className="py-24 sm:px-14 bg-blue-300 flex flex-col text-center">
-
-        <h2 className="subTitle mb-10">
-          Glosario ISTQB®
-        </h2>
-
-
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Busca una definición de término"
-            className="w-[80%] sm:w-[40%] mb-6 rounded-2xl pl-5 py-3 pr-10 text-sm border-blue-950 focus:outline-none"
-          />
-          <IoSearchOutline
-            size={25}
-            className="right-[11%] absolute top-2 sm:right-[31%] cursor-pointer"
-          />
-
-          <select className="bg-white hover:bg-blue-950 text-blue-950 hover:text-white py-3 px-4 rounded-3xl transition-all sm:absolute  sm:right-[15%]">
-            <option value="idioma">idioma</option>
-          </select>
-
-        </div>
-
-
-      </section>
- */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Section 5 */}
 
       <section className="py-20 sm:px-14 flex flex-col text-center section" id="workWithUs" >
 

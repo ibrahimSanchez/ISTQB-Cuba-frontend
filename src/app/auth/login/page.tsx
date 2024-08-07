@@ -152,7 +152,7 @@ export default function Page() {
         <Link
           href="/auth/new-account"
           className="px-4 py-2 rounded-full bg-[transparent] border border-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
-          Crear una nueva cuenta
+          Crear una cuenta nueva
         </Link>
 
       </div>

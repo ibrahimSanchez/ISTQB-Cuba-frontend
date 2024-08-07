@@ -6,30 +6,30 @@ import Link from "next/link";
 
 
 
-export const CardCertifications = ({ title, text, textLink, level = "" }: Certification) => {
+export const CardCertifications = ({ category, description, name, uid }: Certification) => {
     return (
 
         <div className="min-w-[350px] bg-white border border-[#05375e] rounded-lg shadow m-5 card">
             
             <div className="p-5 gradient-card rounded-br-full h-[150px] flex flex-col justify-between">
                 <h5 className="text-xl tracking-tight text-white">
-                    {title}
+                    {name}
                 </h5>
                 <h6 className="text-sm tracking-tight text-white">
-                    {level}
+                    {category}
                 </h6>
             </div>
 
             <p className="mt-3 font-normal text-xs text-gray-300 p-5">
-                {text}
+                {description}
             </p>
 
             <div className="flex justify-between pb-5 px-5">
                 <Link
-                    href={`${textLink}`}
+                    href={`/certification/${uid}`}
                     className="inline-flex font-medium items-center text-gray-500 underline text-xs"
                 >
-                    Leer más
+                    Leer más 
                 </Link>
 
                 <Image

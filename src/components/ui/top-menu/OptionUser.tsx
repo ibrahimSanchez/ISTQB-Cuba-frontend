@@ -2,6 +2,7 @@
 
 import { isAuth, removeCookie } from "@/helper/manageCookie";
 import Link from "next/link"
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoIosLogIn, IoIosLogOut, IoIosNotifications } from "react-icons/io"
 import { IoPerson } from "react-icons/io5"
@@ -12,14 +13,17 @@ import { IoPerson } from "react-icons/io5"
 
 export const OptionUser = () => {
 
+    const router = useRouter();
 
     const [showUserMenu, setShowUserMenu] = useState(false);
 
     const [isUserAuth, setIsUserAuth] = useState(false);
 
     const logOut = () => {
+        setShowUserMenu(false);
         removeCookie('AUTH_TOKEN_KEY');
         setIsUserAuth(isAuth());
+        router.push('/');
     }
 
     useEffect(() => {
@@ -80,6 +84,9 @@ export const OptionUser = () => {
                                             Cerrar sesión
                                         </div>
                                         <Link
+                                            onClick={() => {
+                                                setShowUserMenu(false);
+                                            }}
                                             href="/notifications"
                                             className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
                                             role="menuitem"

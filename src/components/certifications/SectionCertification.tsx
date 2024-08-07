@@ -1,33 +1,58 @@
+'use client';
+
 import { Certification } from "@/interfaces";
 import { CardCertifications } from "../ui/card/CardCertifications"
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 interface Props {
-    category: string;
+    level: string;
     certifications: Certification[];
 }
 
 
+export const SectionCertification = ({ level, certifications }: Props) => {
 
-export const SectionCertification = ({ category, certifications }: Props) => {
+    const [certificationData, setCertificationData] = useState<Certification[]>([]);
+
+    useEffect(() => {
+        const data = certifications.filter(cert => cert.category === level);
+        setCertificationData(data);
+
+    }, [certifications]);
+
     return (
         <section id="esquema" className="mb-16">
 
-            <h4 className="text-xl font-bold subTitle ">
-                {category}
+            <h4 className="text-xl font-bold subTitle">
+                {level}
             </h4>
 
-            <div className="flex justify-evenly overflow-auto">
+            <div className={
+                clsx(
+                    "flex overflow-auto",
+                    {
+                        "justify-evenly": certificationData.length
+                    }
+                )
+            }>
 
                 {
-                    certifications.map(({ level, text, textLink, title }, i) => (
-                        <CardCertifications
-                            key={title + i + level}
-                            level={level}
-                            text={text}
-                            textLink={textLink}
-                            title={title}
-                        />
-                    ))
+                    certificationData.length === 0 ?
+                        <div className="m-5">
+                            <p>No hay certificaciones disponibles</p>
+                        </div>
+                        :
+                        certificationData.map(({ category, name, description, prise, uid }, i) => (
+                            <CardCertifications
+                                key={name + i + category}
+                                category={category}
+                                description={description}
+                                prise={prise}
+                                name={name}
+                                uid={uid}
+                            />
+                        ))
                 }
 
             </div>

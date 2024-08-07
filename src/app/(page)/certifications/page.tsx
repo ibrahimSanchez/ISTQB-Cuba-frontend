@@ -1,12 +1,31 @@
-import { SectionCertification } from "@/components";
-import { certificationData } from "@/data/certification";
-import Link from "next/link";
+'use client';
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { SectionCertification } from "@/components";
+import { getCurses } from "@/api";
 
 
 
 export default function Certifications() {
 
+  const [certificationData, setCertificationData] = useState([]);
+
+  const loadCertifications = async () => {
+
+    try {
+      const res = await getCurses();
+      setCertificationData(res.data.curses);
+      console.log(res.data.curses)
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    loadCertifications();
+  }, []);
 
   return (
     <div className="mt-28 sm:px-14">
@@ -39,9 +58,40 @@ export default function Certifications() {
 
 
       <SectionCertification
-        category="Fundación central"
+        level="Base"
         certifications={certificationData}
       />
+      
+      <SectionCertification
+        level="Avanzado"
+        certifications={certificationData}
+      />
+      
+
+
+
+      
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 
 
 
       <SectionCertification
@@ -84,9 +134,4 @@ export default function Certifications() {
         category="Gestión de pruebas"
         certifications={certificationData}
       />
-
-
-
-    </div>
-  )
-}
+ */}

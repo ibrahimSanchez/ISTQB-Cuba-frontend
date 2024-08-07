@@ -1,8 +1,9 @@
 
 
 export interface Certification {
-    level?: string;
-    title: string;
-    text: string;
-    textLink: string;
+    category: string;
+    name: string;
+    description: string;
+    prise: number;
+    uid: string;
 }

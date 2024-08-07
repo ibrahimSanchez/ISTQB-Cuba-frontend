@@ -6,7 +6,7 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   
   return (
-    <main className="main-h-screen section">
+    <main className="main-h-screen">
 
       <TopMenu />
 

@@ -8,7 +8,7 @@ type UserLogin = {
 
 
 export const login = (user: UserLogin) => {
-    // console.log(usuario)
+    // console.log(user)
     return axios.post('http://localhost:8080/api/auth/login', user)
 }
 

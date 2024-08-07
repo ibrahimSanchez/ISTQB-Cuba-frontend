@@ -1,0 +1,20 @@
+
+
+IMPORTANTE
+
+Hacer la pagina de las certificaciones (en la q se ve una certificacion)
+
+Hacer la pagina para rellenar el formulario con los datos del usuario de la reservacion para las certificaciones 
+(incluir datos personales del usuario y hacer modificaciones necesarias en el backend)
+
+Validar en los form (email) para que acepte los dominios correctos (solo esta para @gmail.com)
+
+
+
+
+
+
+
+
+Considerar que se añada una taba "category" para los cursos (estarian todas las categorias posibles)
+

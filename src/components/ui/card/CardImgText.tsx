@@ -1,15 +1,12 @@
 import Image from "next/image"
 import Link from "next/link";
 
-
 interface Props {
     img: string;
     title: string;
     text: string;
     textLink: string;
 }
-
-
 
 export const CardImgText = ({ title, text, textLink, img }: Props) => {
     return (

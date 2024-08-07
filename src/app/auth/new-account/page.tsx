@@ -22,6 +22,8 @@ type Inputs = {
 
 export default function Page() {
 
+  const router = useRouter();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const changeShowPassword = () => {
@@ -45,18 +47,25 @@ export default function Page() {
     // todo hay q ver como manejar el asignar roles (esta x defecto el de usuario)
     data.role = 'USER_ROLE';
 
-    const res = await newAccount(data);
-    console.log('has submit', data, res);
+
+    try {
+      const res = await newAccount(data);
+      // console.log('has submit', res);
+      router.push('/auth/login');
+
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
 
-  const router = useRouter();
 
   useEffect(() => {
     if (isAuth()) router.push('/')
   }, []);
 
-  
+
   return (
     <div className="flex flex-col min-h-screen pt-32 sm:pt-40 mb-36">
 
@@ -152,7 +161,7 @@ export default function Page() {
           <button
             className='px-4 py-2 rounded-full bg-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500'
           >
-            Iniciar
+            Crear cuenta
           </button>
 
         </form>
