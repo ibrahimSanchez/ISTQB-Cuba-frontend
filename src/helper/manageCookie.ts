@@ -16,5 +16,5 @@ export const removeCookie = (name: string) => {
 
 export const isAuth = () => {
   const token = getCookie('AUTH_TOKEN_KEY');
-  return !isExpired(token);
+  return !isExpired(token || '');
 } 

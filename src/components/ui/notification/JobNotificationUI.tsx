@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { JobApplication } from '@/interfaces';
 import { IoTrash } from 'react-icons/io5';
-// import { FaEnvelope, FaEnvelopeOpen } from 'react-icons/fa';
 import { deleteJobApplication } from '@/api';
 import { ModalOption } from '@/components';
 import { IconButton, Tooltip } from '@mui/material';

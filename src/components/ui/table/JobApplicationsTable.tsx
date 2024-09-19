@@ -35,7 +35,7 @@ export const JobApplicationsTable = ({ jobApplications, loadUserData, setLoadUse
     const [textOptionModal, setTextOptionModal] = useState('Está seguro de eliinar la solicitud de trabajo?');
     const [jobApplicationIdSelected, setJobApplicationIdSelected] = useState('');
 
-    const toggleModalOption = (id: string) => {
+    const toggleModalOption = (id: any) => {
         setJobApplicationIdSelected(id);
         setModalOptionOpen(!isModalOptionOpen);
     };

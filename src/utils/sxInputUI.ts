@@ -1,9 +1,4 @@
 
-
-
-
-
-
 export const sxCorrect = {
   '& .MuiOutlinedInput-root': {
     '& fieldset': {

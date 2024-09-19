@@ -22,7 +22,7 @@ export default function Notifications() {
 
   useEffect(() => {
 
-    const data = notifications.filter(notification =>
+    const data = notifications.filter((notification: any) =>
       notification.view === true
     );
 

@@ -31,7 +31,7 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
     const [textOptionModal, setTextOptionModal] = useState('Está seguro de eliinar el usuario?');
     const [userIdSelected, setUserIdSelected] = useState('');
 
-    const toggleModalOption = (id: string) => {
+    const toggleModalOption = (id: any) => {
         setUserIdSelected(id);
         setModalOptionOpen(!isModalOptionOpen);
     };

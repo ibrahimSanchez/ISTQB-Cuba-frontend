@@ -41,7 +41,7 @@ export default function Notifications() {
 
   useEffect(() => {
 
-    const data = jobApplications.filter(jobApplication =>
+    const data = jobApplications.filter((jobApplication: any) =>
       jobApplication.approved === false
     );
 

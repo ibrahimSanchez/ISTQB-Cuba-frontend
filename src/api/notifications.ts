@@ -18,14 +18,14 @@ export const getNotifications = () => {
 
 export const getNotificationsByUserId = () => {
     const token = JSON.parse(getCookie('USER_AUTH') || '').tokenAccess;
-    const id = decodeToken(token).uid;
+    const { uid }: any = decodeToken(token);
 
     const config = {
         headers: {
             'x-token': token
         }
     };
-    return axios.get(`http://localhost:8080/api/notifications/${id}`, config)
+    return axios.get(`http://localhost:8080/api/notifications/${uid}`, config)
 }
 
 

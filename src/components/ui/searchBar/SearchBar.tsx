@@ -6,7 +6,7 @@ import { Criteria } from "@/interfaces";
 
 interface Props {
     setDataToShow: Function;
-    allData: [];
+    allData: any[];
     searchCriteria: Criteria[];
 }
 

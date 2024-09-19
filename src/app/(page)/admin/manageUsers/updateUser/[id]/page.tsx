@@ -77,7 +77,7 @@ export default function Page({ params }: Props) {
 
 
 
-    const onSubmit: SubmitHandler<User> = async (data) => {
+    const onSubmit: SubmitHandler<any> = async (data) => {
 
         if (data.password.length === 0) {
             delete data.password;

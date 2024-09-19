@@ -21,7 +21,8 @@ export const getCertificationById = (id: string) => {
 
 export const getCertificationsByUserId = () => {
     const token = JSON.parse(getCookie('USER_AUTH') || '').tokenAccess;
-    const userId = decodeToken(token).uid;
+    const { uid }: any = decodeToken(token);
+    const userId = uid;
 
     const config = {
         headers: {
@@ -35,9 +36,9 @@ export const getCertificationsByUserId = () => {
 
 export const postCertification = (data: Certification) => {
     const token = JSON.parse(getCookie('USER_AUTH') || '').tokenAccess;
-    const userId = decodeToken(token).uid;
+    const { uid }: any = decodeToken(token);
 
-    data.userId = userId;
+    data.userId = uid;
 
     const config = {
         headers: {

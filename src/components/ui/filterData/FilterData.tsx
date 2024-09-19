@@ -8,7 +8,7 @@ import { sxCorrect } from "@/utils";
 
 interface Props {
     setDataToShow: Function;
-    allData: [];
+    allData: any[];
     filterCriteria: FilterCriteria[];
 }
 

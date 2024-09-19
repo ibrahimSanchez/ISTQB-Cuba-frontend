@@ -41,7 +41,7 @@ export const ReservationTable = ({
     const [textOptionModal, setTextOptionModal] = useState('Está seguro de eliinar la reservación?');
     const [reservationIdSelected, setReservationIdSelected] = useState('');
 
-    const toggleModalOption = (id: string) => {
+    const toggleModalOption = (id: any) => {
         setReservationIdSelected(id);
         setModalOptionOpen(!isModalOptionOpen);
     };

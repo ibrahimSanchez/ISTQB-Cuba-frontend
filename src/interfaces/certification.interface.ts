@@ -6,5 +6,5 @@ export interface Certification {
     description: string;
     prise: number;
     uid: string;
-    userId: string;
+    userId?: string;
 }

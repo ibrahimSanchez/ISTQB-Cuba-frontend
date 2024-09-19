@@ -20,9 +20,9 @@ export const getJobApplications = () => {
 
 export const postJobApplication = (data: JobApplication) => {
     const token = JSON.parse(getCookie('USER_AUTH') || '').tokenAccess;
-    const id = decodeToken(token).uid;
+    const { uid }: any = decodeToken(token);
 
-    data.userId = id.toString();
+    data.userId = uid.toString();
 
     const config = {
         headers: {
