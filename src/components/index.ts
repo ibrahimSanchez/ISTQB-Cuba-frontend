@@ -16,6 +16,7 @@ export * from './ui/not-found/PageNotFound';
 
 export * from './ui/modal/ModalAnswer';
 export * from './ui/modal/ModalOption';
+export * from './ui/modal/ModalSpinner';
 
 
 export * from './ui/table/TableUI';
