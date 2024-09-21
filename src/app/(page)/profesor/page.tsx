@@ -11,7 +11,6 @@ export default function Profesor() {
   const [certificationData, setCertificationData] = useState<Certification[]>([]);
   const [loadData, setLoadData] = useState(false);
 
-
   const loadCertifications = async () => {
 
     try {
@@ -24,9 +23,11 @@ export default function Profesor() {
     }
   }
 
+
   useEffect(() => {
     loadCertifications();
   }, [loadData]);
+
 
 
   return (

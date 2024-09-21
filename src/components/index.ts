@@ -9,6 +9,7 @@ export * from './ui/card/CardText';
 export * from './ui/card/CardImgText';
 export * from './ui/card/CardCertifications';
 export * from './ui/card/CardCertificationUI';
+export * from './ui/card/CardReservationUI';
 
 export * from './ui/certifications/SectionCertification';
 
@@ -38,3 +39,6 @@ export * from './ui/notification/NotificationUI';
 export * from './ui/notification/JobNotificationUI';
 
 export * from './ui/filterData/FilterData';
+
+
+export * from './reservationsGrid/ReservationsGrid';

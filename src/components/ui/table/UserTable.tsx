@@ -7,6 +7,7 @@ import { User, DataModal } from '@/interfaces';
 import Link from 'next/link';
 import { deleteArrayUser, deleteUser } from '@/api';
 import { ModalAnswer, ModalOption } from '@/components';
+import { IconButton, Tooltip } from '@mui/material';
 
 
 
@@ -175,25 +176,31 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                                     <td className="p-4 border border-slate-700">{user.email}</td>
                                     <td className="p-4 border border-slate-700">{user.role}</td>
                                     <td className="p-4 border border-slate-700">
-                                        <button
-                                            disabled={selectedUsers.length === 0 ? false : true}
-                                            className='text-blue-500 hover:text-blue-700 mr-5'
-                                        >
-                                            {selectedUsers.length === 0 ?
-                                                <Link href={`/admin/manageUsers/updateUser/${user.uid}`}>
-                                                    <FaPen size={20} />
-                                                </Link>
-                                                : <FaPen size={20} />
 
-                                            }
-                                        </button>
-                                        <button
-                                            disabled={selectedUsers.length === 0 ? false : true}
-                                            className='text-red-500 hover:text-red-700 mr-5'
-                                            onClick={() => toggleModalOption(user.uid || '')}
-                                        >
-                                            <IoTrash size={20} />
-                                        </button>
+                                        <Tooltip title="Editar">
+                                            <IconButton
+                                                disabled={selectedUsers.length === 0 ? false : true}
+                                                className='text-blue-500 hover:text-blue-700 mr-5'
+                                            >
+                                                {selectedUsers.length === 0 ?
+                                                    <Link href={`/admin/manageUsers/updateUser/${user.uid}`}>
+                                                        <FaPen size={20} />
+                                                    </Link>
+                                                    : <FaPen size={20} />
+
+                                                }
+                                            </IconButton>
+                                        </Tooltip>
+
+                                        <Tooltip title="Borrar">
+                                            <IconButton
+                                                disabled={selectedUsers.length === 0 ? false : true}
+                                                className='text-red-500 hover:text-red-700 mr-5'
+                                                onClick={() => toggleModalOption(user.uid || '')}
+                                            >
+                                                <IoTrash size={20} />
+                                            </IconButton>
+                                        </Tooltip>
                                     </td>
                                 </tr>
                             ))

@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { IoTrash } from 'react-icons/io5';
 import { FaCheckCircle } from "react-icons/fa";
-import { Reservation, DataModal, User, Certification, FilterCriteria } from '@/interfaces';
+import { Reservation, DataModal, User, Certification } from '@/interfaces';
 import { deleteArrayReservation, deleteReservation, putReservation } from '@/api';
-import { FilterData, ModalAnswer, ModalOption } from '@/components';
+import { ModalAnswer, ModalOption } from '@/components';
+import Link from 'next/link';
+import { IconButton, Tooltip } from '@mui/material';
 
 
 
@@ -207,22 +209,34 @@ export const ReservationTable = ({
                                         />
                                     </td>
                                     <td className="p-4 border border-slate-700">{users.find((user) => user.uid === userId)?.email}</td>
-                                    <td className="p-4 border border-slate-700">{certifications.find((certification) => certification.uid === certificationId)?.name}</td>
+                                    <td className="p-4 border border-slate-700">
+                                        <Link href={`/certification/${certificationId}`} >
+                                            {certifications.find((certification) => certification.uid === certificationId)?.name}
+                                        </Link>
+                                    </td>
                                     <td className="p-4 border border-slate-700">{approved ? 'Aprobada' : 'Pendiente'}</td>
                                     <td className="p-4 border border-slate-700">
-                                        <button
-                                            disabled={approved}
-                                            className='text-blue-500 hover:text-blue-700 mr-5'
-                                            onClick={() => approvedReservation(uid)}
-                                        >
-                                            <FaCheckCircle size={20} />
-                                        </button>
-                                        <button
-                                            className='text-red-500 hover:text-red-700 mr-5'
-                                            onClick={() => toggleModalOption(uid || '')}
-                                        >
-                                            <IoTrash size={20} />
-                                        </button>
+                                       
+                                        <Tooltip title="Aprobar">
+                                            <IconButton
+                                                disabled={approved}
+                                                className='text-blue-500 hover:text-blue-700 mr-5'
+                                                onClick={() => approvedReservation(uid)}
+                                            >
+                                                <FaCheckCircle size={20} />
+                                            </IconButton>
+                                        </Tooltip>
+
+                                        <Tooltip title="Eliminar">
+                                            <IconButton>
+                                                <button
+                                                    className='text-red-500 hover:text-red-700 mr-5'
+                                                    onClick={() => toggleModalOption(uid || '')}
+                                                >
+                                                    <IoTrash size={20} />
+                                                </button>
+                                            </IconButton>
+                                        </Tooltip>
                                     </td>
                                 </tr>
                             ))

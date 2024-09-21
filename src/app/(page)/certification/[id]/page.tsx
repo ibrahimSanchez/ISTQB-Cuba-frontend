@@ -8,7 +8,6 @@ import Link from "next/link";
 import { AuthContext } from "@/context";
 import { ModalSpinner } from "@/components";
 
-
 interface Props {
     params: {
         id: string;
@@ -19,7 +18,6 @@ interface Props {
 export default function Page({ params }: Props) {
 
     const { userAuth } = useContext(AuthContext);
-
 
     const [certification, setCertification] = useState<Certification>();
     const [isNotFound, setIsNotFound] = useState(false);
@@ -35,10 +33,11 @@ export default function Page({ params }: Props) {
             setOpenModalSpinner(false);
             // console.log(cert.data.certifications);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             setIsNotFound(true);
         }
     }
+
 
     useEffect(() => {
         setOpenModalSpinner(true);

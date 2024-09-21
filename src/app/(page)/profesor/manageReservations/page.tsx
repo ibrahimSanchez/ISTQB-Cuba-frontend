@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { getCertification, getReservations, getUsers } from '@/api';
 import { Certification, FilterCriteria, Reservation, User } from '@/interfaces';
-import { FilterData, ReservationTable } from "@/components";
+import { FilterData, ReservationsGrid, ReservationTable } from "@/components";
 
 
 export default function Page() {
@@ -63,8 +63,6 @@ export default function Page() {
   }, [loadReservationData]);
 
 
-
-
   const criteria: FilterCriteria[] = [{
     name: 'Aprobada',
     value: true
@@ -79,12 +77,19 @@ export default function Page() {
   return (
     <>
 
-
       <FilterData
         allData={reservations}
         setDataToShow={setDataToShow}
         filterCriteria={criteria}
       />
+
+      {/* <ReservationsGrid 
+      loadReservationData={loadReservationData}
+      setLoadReservationData={setLoadReservationData}
+      reservations={dataToShow}
+      users={users}
+      certifications={certifications}/> */}
+
 
       <ReservationTable
         loadReservationData={loadReservationData}
@@ -93,6 +98,8 @@ export default function Page() {
         users={users}
         certifications={certifications}
       />
+
+  
     </>
 
   )
