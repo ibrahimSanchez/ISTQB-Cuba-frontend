@@ -160,7 +160,7 @@ export default function TopMenuUI(props: Props) {
                     }}
                     sx={{
                         display: { sm: 'block', lg: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background: '#1e1e1e' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background: 'var(--navbar)' },
                     }}
                 >
                     {drawer}

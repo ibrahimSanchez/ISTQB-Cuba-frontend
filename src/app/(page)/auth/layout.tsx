@@ -4,7 +4,7 @@ export default function ShopLayout({ children, }: {
 }) {
     return (
         <main className="flex justify-center text-center mb-20">
-            <div className="w-full sm:w-[350px] px-10">
+            <div className="w-full sm:w-[550px] px-10">
 
                 {children}
                 

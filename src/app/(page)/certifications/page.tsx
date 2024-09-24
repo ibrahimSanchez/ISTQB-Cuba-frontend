@@ -4,14 +4,10 @@ import { useEffect, useState } from "react";
 import { SectionCertification, } from "@/components";
 import { getCategories, getCertification } from "@/api";
 
-
-
 type Category = {
   uid: string;
   category: string;
 }
-
-
 
 
 export default function Certifications() {
@@ -29,8 +25,6 @@ export default function Certifications() {
       console.log(error);
     }
   }
-
-
 
   const loadCategories = async () => {
     try {
@@ -57,7 +51,7 @@ export default function Certifications() {
 
       <div className="mb-16">
 
-        <p className="leading-7 text-gray-300 mb-6">
+        <p className="leading-7 text-[--text_color] mb-6">
           Ya sea que sea nuevo o ya esté establecido en la profesión de las pruebas, la certificación ISTQB ®
           lo respaldará a lo largo de su carrera. Para los empleadores, el esquema de Probador Certificado
           ISTQB ® lo ayudará a desarrollar y validar las habilidades de su equipo y respaldará el reclutamiento.

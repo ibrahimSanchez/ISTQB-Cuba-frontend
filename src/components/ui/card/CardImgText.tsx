@@ -11,7 +11,7 @@ interface Props {
 export const CardImgText = ({ title, text, textLink, img }: Props) => {
     return (
 
-        <div className="max-w-sm bg-[#28282b] border border-[#05375e] rounded-lg shadow m-6 py-4 cardAnimate">
+        <div className="max-w-sm bg-[--card] border border-[--secondary] rounded-lg shadow m-6 py-4 cardAnimate">
 
             <div className="flex justify-center">
 
@@ -25,14 +25,14 @@ export const CardImgText = ({ title, text, textLink, img }: Props) => {
             </div>
 
             <div className="p-5">
-                <h5 className="mb-4 text-xl font-semibold tracking-tight text-gray-300">
+                <h5 className="mb-4 text-xl font-semibold tracking-tight text-[--text_color]">
                     {title}
                 </h5>
-                <p className="mb-5 font-normal text-gray-400 ">
+                <p className="mb-5 font-normal text-[--text_secondary_color]">
                     {text}
                 </p>
 
-                <Link href={`${textLink}`} className="inline-flex font-medium items-center text-gray-500 underline">
+                <Link href={`${textLink}`} className="inline-flex font-medium items-center text-[--text_secondary_color] underline">
                     Leer más
                 </Link>
 

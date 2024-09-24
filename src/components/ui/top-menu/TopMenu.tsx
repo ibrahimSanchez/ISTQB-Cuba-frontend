@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 import { OptionUser } from "./OptionUser";
 
 
-
-
 export const TopMenu = () => {
 
     const pathname = usePathname();
@@ -15,8 +13,6 @@ export const TopMenu = () => {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                {/* <img src="/path/to/logo.png" alt="ISTQB Logo" /> */}
-
                 <Link href='/'>
                     <Image
                         alt="Logo"

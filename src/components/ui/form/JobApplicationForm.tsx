@@ -133,6 +133,7 @@ export const JobApplicationForm = () => {
                     variant="contained"
                     size='large'
                     type='submit'
+                    className="btn-primary"
                 >
                     Enviar Solicitud
                 </Button>

@@ -224,6 +224,7 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, infoUser }: 
                 variant="contained"
                 size='large'
                 type='submit'
+                className='bg-[#053b5e] hover:bg-[#062b43] shadow-lg'
             >
                 Enviar
             </Button>

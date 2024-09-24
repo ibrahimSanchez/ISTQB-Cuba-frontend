@@ -17,7 +17,14 @@ export default function RootLayout({ children }: Readonly<{
   return (
     <section className="mb-12 mt-16 px-8 sm:px-14">
       <div className='sm:flex justify-between'>
-        <h1 className="text-3xl font-bold mb-6 title">Panel de Administración</h1>
+        <h1 className="text-3xl font-bold mb-6 title">
+          {
+            clsx({
+              'Gestión de usuarios': pathname === '/admin/manageUsers',
+              "Gestión de solicitudes de trabajo": pathname === '/admin/manageJobApplications'
+            })
+          }
+        </h1>
 
         <div className="sm:flex space-x-4 mb-2 text-center">
 

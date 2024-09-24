@@ -18,7 +18,15 @@ export default function RootLayout({ children }: Readonly<{
     <>
       <section className="main-h-screen mt-16 px-8 sm:px-14 mb-12">
         <div className='sm:flex justify-between'>
-          <h1 className="text-3xl font-bold mb-6 title">Administración de Certificaciones</h1>
+          <h1 className="text-3xl font-bold mb-6 title">
+            {
+              clsx({
+                "Administración de Certificaciones": pathname === '/profesor',
+                "Añadir certificación": pathname === '/profesor/manageCertifications/addCertifications',
+                "Gestión de reservaciones": pathname === '/profesor/manageReservations'
+              })
+            }
+          </h1>
 
           <div className="sm:flex space-x-4 mb-2 text-center">
 

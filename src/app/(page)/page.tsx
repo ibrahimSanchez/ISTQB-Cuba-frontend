@@ -1,4 +1,5 @@
 import { CardImgText, CardText } from "@/components";
+import { Button } from "@mui/material";
 import Link from "next/link";
 
 
@@ -8,7 +9,7 @@ export default function Home() {
     <>
       <section className="welcome-section">
         <div className="welcome-content">
-          <h2>Bienvenido a ISTQB®</h2>
+          <h2 className="title">Bienvenido a ISTQB®</h2>
           <p>
             ISTQB® es el esquema líder de certificación global en el campo de las pruebas de software.
             Hasta junio de 2023, ISTQB® ha administrado 1,3 millones de exámenes y emitido más de 957k certificaciones en más de 130 países. Con su extensa red de Proveedores de Capacitación Acreditados, Juntas de Miembros y Proveedores de Exámenes, ISTQB® es uno de los esquemas de certificación profesional neutrales en proveedor más grandes y establecidos del mundo.
@@ -17,8 +18,19 @@ export default function Home() {
             El vocabulario de ISTQB® es reconocido en la industria como el lenguaje por defecto en el campo de las pruebas de software y conecta a profesionales en todo el mundo.
           </p>
           <div className="welcome-buttons block md:flex md:justify-between">
-            <Link href="/certifications" className="btn-primary m-3">Nuestras Certificaciones</Link>
-            <Link href="/workWithUs" className="btn-secondary m-3">Trabaja Con Nosotros</Link>
+            <Link href="/certifications">
+              <Button
+                className="btn-primary m-3 p-4 rounded-xl btn-animate">
+                Nuestras Certificaciones
+              </Button>
+            </Link>
+
+            <Link href="/workWithUs">
+              <Button className="btn-secondary m-3 p-4 rounded-xl btn-animate">
+                Trabaja Con Nosotros
+              </Button>
+            </Link>
+
           </div>
         </div>
       </section >
@@ -27,7 +39,7 @@ export default function Home() {
       {/* Section 2 */}
       <section className="build-skills-section" >
         <div className="container">
-          <h2 className="section-title">Build Your Testing Skills</h2>
+          <h2 className="title">Build Your Testing Skills</h2>
 
           <div className="cards">
 
@@ -68,11 +80,11 @@ export default function Home() {
 
       <section className="py-20 sm:px-14 flex flex-col text-center section" id="workWithUs" >
 
-        <h2 className="subTitle mb-6">
+        <h2 className="title mb-6">
           Trabaja Con Nosotros Y Participa
         </h2>
 
-        <p className="leading-8 text-gray-300 p-[1rem]">
+        <p className="leading-8 text-[--text_color] p-[1rem]">
           Hay varias oportunidades interesantes para que las organizaciones y las personas contribuyan al ISTQB®.
           Somos una comunidad colaborativa que trabaja junta en todo el mundo para lograr una visión común.
           Nuestros socios y contribuyentes demuestran un compromiso con la calidad y una pasión por las pruebas
@@ -118,17 +130,9 @@ export default function Home() {
             textLink="#"
           />
 
-
         </div>
-
-      </section >
-
-
-
-
-
+      </section>
 
     </>
-
   );
 }

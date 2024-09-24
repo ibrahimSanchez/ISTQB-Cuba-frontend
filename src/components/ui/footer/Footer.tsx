@@ -4,10 +4,10 @@ import { IoLogoFacebook, IoLogoLinkedin, IoLogoTwitter, IoLogoYoutube } from "re
 
 
 
- 
+
 export const Footer = () => {
     return (
-        <div className="w-full text-xs px-14 py-10 flex justify-between bg-[#1e1e1e]">
+        <div className="w-full text-xs px-14 py-10 flex justify-between bg-[--navbar]">
 
 
             <div className="flex justify-between w-[70%]">

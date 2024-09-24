@@ -15,8 +15,6 @@ import { authTypes } from "@/types";
 
 
 
-
-
 export const OptionUser = () => {
 
   const router = useRouter();
@@ -54,7 +52,7 @@ export const OptionUser = () => {
           >
             <IoPerson
               size={40}
-              className="p-3 text-white cursor-pointer hover:bg-[#3a3a3a] active:bg-[#3a3a3a] active:text-white rounded-xl"
+              className="p-3 text-white cursor-pointer hover:bg-[--primary] active:bg-[--primary] active:text-white rounded-xl"
             />
           </IconButton>
         </Tooltip>
@@ -72,7 +70,7 @@ export const OptionUser = () => {
               overflow: 'visible',
               filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
               mt: 1.5,
-              background: '#1e1e1e',
+              background: 'var(--navbar)',
               color: '#fff',
               padding: '0 10px',
               border: '1px solid #2a2a2a',
@@ -93,7 +91,7 @@ export const OptionUser = () => {
                 bgcolor: 'background.paper',
                 transform: 'translateY(-50%) rotate(45deg)',
                 zIndex: 0,
-                background: '#1e1e1e',
+                background: 'var(--navbar)',
                 border: '1px solid #2a2a2a',
               },
             },
@@ -106,7 +104,7 @@ export const OptionUser = () => {
           !userAuth?.logged && (
             <Link
               href="/auth/login"
-              className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
+              className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
               role="menuitem"
             >
               <IoIosLogIn
@@ -116,14 +114,12 @@ export const OptionUser = () => {
               Iniciar sesión
             </Link>
           )
-        }
-
-        {
+        }{
           userAuth?.logged && (
             <div>
               <div
                 onClick={() => logOut()}
-                className="cursor-pointer select-none flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
+                className="cursor-pointer select-none flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
                 role="menuitem"
               >
                 <IoIosLogOut
@@ -134,7 +130,7 @@ export const OptionUser = () => {
               </div>
               <Link
                 href="/notifications"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
+                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
                 role="menuitem"
               >
                 <IoIosNotifications
@@ -146,7 +142,7 @@ export const OptionUser = () => {
 
               <Link
                 href="/profesor"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
+                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
                 role="menuitem"
               >
                 <FaChalkboardTeacher
@@ -159,7 +155,7 @@ export const OptionUser = () => {
               <Link
 
                 href="/admin/manageUsers"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
+                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
                 role="menuitem"
               >
                 <IoPerson
@@ -168,19 +164,6 @@ export const OptionUser = () => {
                 />
                 Panel de administrador
               </Link>
-
-
-              {/* <Link
-                href={`/profile/${userId}`}
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[#3a3a3a] hover:text-gray-300"
-                role="menuitem"
-              >
-                <IoPerson
-                  size={35}
-                  className="p-2 text-white cursor-pointer"
-                />
-                Perfil
-              </Link> */}
             </div>
           )}
 

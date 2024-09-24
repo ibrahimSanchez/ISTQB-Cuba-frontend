@@ -12,7 +12,7 @@ export const CardCertifications = ({ category, description, name, uid }: Certifi
 
     return (
 
-        <div className="min-w-[350px] bg-white border border-[#05375e] rounded-lg shadow m-5 card">
+        <div className="min-w-[350px] border border-[-secondary] rounded-lg shadow m-5 card">
 
             <div className="p-5 gradient-card rounded-br-full h-[150px] flex flex-col justify-between">
                 <h5 className="text-xl tracking-tight text-white">
@@ -23,7 +23,7 @@ export const CardCertifications = ({ category, description, name, uid }: Certifi
                 </h6>
             </div>
 
-            <p className="mt-3 font-normal text-xs text-gray-300 p-5">
+            <p className="mt-3 font-normal text-xs text-[--text_color] p-5">
                 {textShowDescription}
                 {
                     description.length > 250 && (
