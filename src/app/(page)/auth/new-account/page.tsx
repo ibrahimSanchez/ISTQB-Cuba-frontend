@@ -101,7 +101,7 @@ export default function Page() {
           <div className="flex flex-col">
 
             <form
-              name='login'
+              name='new-account'
               className='flex flex-col'
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -109,6 +109,7 @@ export default function Page() {
                 errors={errors}
                 register={register}
                 isUpdate={false}
+                isUser={true}
               />
 
             </form>

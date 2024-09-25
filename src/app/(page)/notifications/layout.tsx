@@ -8,6 +8,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoIosWallet, IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 
 export default function RootLayout({ children }: Readonly<{
@@ -43,44 +44,65 @@ export default function RootLayout({ children }: Readonly<{
   return (
     <div className="mt-16 px-8 sm:px-14">
 
-
-      <div className='sm:flex justify-between'>
+      <div className='sm:flex justify-between items-center'>
         < h1 className="title mb-6" > Notificaciones</ h1>
 
         <div className="sm:flex space-x-4 mb-6 text-center">
 
-          <Link href="/notifications" className={
-            clsx(
-              "btnLink",
-              {
-                "btnLinkActive": pathname === '/notifications'
-              }
-            )
-          }>
-            Todas
-          </Link>
+          <Tooltip title="Todas">
+            <IconButton>
+              <Link href="/notifications" className={
+                clsx(
+                  "btnLink",
+                  {
+                    "btnLinkActive": pathname === '/notifications'
+                  }
+                )
+              }>
+                <IoIosWallet
+                  size={23}
+                  className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                />
+              </Link>
+            </IconButton>
+          </Tooltip>
 
-          <Link href='/notifications/read' className={
-            clsx(
-              "btnLink",
-              {
-                "btnLinkActive": pathname === '/notifications/read'
-              }
-            )
-          }>
-            Vistas
-          </Link>
+          <Tooltip title="Vistas">
+            <IconButton>
+              <Link href='/notifications/read' className={
+                clsx(
+                  "btnLink",
+                  {
+                    "btnLinkActive": pathname === '/notifications/read'
+                  }
+                )
+              }>
+                <IoMdEye
+                  size={23}
+                  className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                />
+              </Link>
+            </IconButton>
+          </Tooltip>
 
-          <Link href='/notifications/unread' className={
-            clsx(
-              "btnLink",
-              {
-                "btnLinkActive": pathname === '/notifications/unread'
-              }
-            )
-          }>
-            Sin ver
-          </Link>
+          <Tooltip title="Sin ver">
+            <IconButton>
+              <Link href='/notifications/unread' className={
+                clsx(
+                  "btnLink",
+                  {
+                    "btnLinkActive": pathname === '/notifications/unread'
+                  }
+                )
+              }>
+                <IoMdEyeOff
+                  size={23}
+                  className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                />
+              </Link>
+            </IconButton>
+          </Tooltip>
+
         </div>
       </div>
 

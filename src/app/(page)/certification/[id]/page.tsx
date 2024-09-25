@@ -54,9 +54,9 @@ export default function Page({ params }: Props) {
             : <div className="mt-16 px-8 sm:px-14 p-6 m-4 flex flex-col justify-between h-full">
 
                 <h2 className="text-xl font-bold mb-6 title">{certification?.name}</h2>
-                <p className="text-gray-300 mb-4">{certification?.description}</p>
+                <p className="text-[--text_color] mb-4">{certification?.description}</p>
                 <div className="flex justify-between items-center mb-6">
-                    <span className="text-sm text-gray-400">{certification?.category}</span>
+                    <span className="text-sm text-[--primary]">{certification?.category}</span>
                     <span className="font-semibold text-lg text-red-500">${certification?.prise}</span>
                 </div>
 
@@ -65,7 +65,8 @@ export default function Page({ params }: Props) {
                         userAuth.logged ?
                             <Link
                                 href={`/certification/${id}/reservation`}
-                                className="p-6 block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition-colors"
+                                // className="p-6 block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition-colors"
+                                className="btn-primary p-3 rounded-3xl"
                             >
                                 Reservar
                             </Link>

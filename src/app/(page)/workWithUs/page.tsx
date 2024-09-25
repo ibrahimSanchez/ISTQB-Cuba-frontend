@@ -24,7 +24,7 @@ export default function Page() {
                             <li className="mb-2">Si tu perfil es un buen ajuste, te haremos una oferta de empleo que podrás considerar.</li>
                         </ol>
                     </div>
-                    <div>
+                    <div className="p-6 pt-2 rounded-sm shadow-xl hover:shadow-2xl transition-all">
                         <h3 className="subTitle mb-6">Solicitud de empleo</h3>
 
                         <JobApplicationForm />

@@ -66,12 +66,12 @@ export default function Page() {
 
 
 
-  const router = useRouter();
+    const router = useRouter();
 
 
-  useEffect(() => {
-    if (isRedirect) router.push('/admin/manageUsers');
-  }, [isRedirect]);
+    useEffect(() => {
+        if (isRedirect) router.push('/admin/manageUsers');
+    }, [isRedirect]);
 
 
     return (
@@ -87,24 +87,23 @@ export default function Page() {
             />
             <div className="flex flex-col text-center">
 
+                <div className="flex flex-col items-center mt-6">
 
-                <h1 className="subTitle">Crear cuenta de usuario</h1>
+                    <div className='bg-[#fafbfb] p-10 rounded-3xl shadow-2xl shadow-black'>
 
-                <div className="flex flex-col items-center mt-10">
+                        <form
+                            name='Crear Usuario'
+                            className='flex flex-col'
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
+                            <CreateAccountUserForm
+                                errors={errors}
+                                register={register}
+                                isUpdate={false}
+                            />
 
-                    <form
-                        name='Crear Usuario'
-                        className='flex flex-col'
-                        onSubmit={handleSubmit(onSubmit)}
-                    >
-                        <CreateAccountUserForm
-                            errors={errors}
-                            register={register}
-                            isUpdate={false}
-                        />
-
-                    </form>
-
+                        </form>
+                    </div>
 
                 </div>
             </div>

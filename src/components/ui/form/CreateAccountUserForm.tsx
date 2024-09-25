@@ -26,7 +26,7 @@ type Role = {
 }
 
 
-export const CreateAccountUserForm = ({ errors, register, isUpdate, infoUser }: any) => {
+export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = false, infoUser }: any) => {
 
 
     const [showPassword, setShowPassword] = useState(false);
@@ -101,38 +101,40 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, infoUser }: 
                 />
             </FormControl>
 
-
-            <FormControl className='mb-6' sx={errors.role ? sxError : sxCorrect}>
-                <InputLabel
-                    className={`${errors.role ? 'text-[#d32c28]' : ''}`}
-                    id="demo-simple-select-helper-label"
-                >
-                    Rol {!isUpdate && '*'}
-                </InputLabel>
-                <Select
-                    className="text-start"
-                    labelId="demo-simple-select-helper-label"
-                    id="demo-simple-select-helper"
-                    laCategory="Rol"
-                    {...register("role", {})}
-                    sx={errors.role ? sxError : sxCorrect}
-                    error={errors.role ? true : false}
-                >
-                    {roles.map(({ uid, role }) => (
-                        <MenuItem key={uid} value={role}>
-                            {role}
-                        </MenuItem>
-                    ))}
-                </Select>
-                {
-                    errors.role &&
-                    <FormHelperText
-                        className='text-[#d32c28]'
+            {
+                !isUser &&
+                <FormControl className='mb-6' sx={errors.role ? sxError : sxCorrect}>
+                    <InputLabel
+                        className={`${errors.role ? 'text-[#d32c28]' : ''}`}
+                        id="demo-simple-select-helper-label"
                     >
-                        {errors.role.message}
-                    </FormHelperText>
-                }
-            </FormControl>
+                        Rol {!isUpdate && '*'}
+                    </InputLabel>
+                    <Select
+                        className="text-start"
+                        labelId="demo-simple-select-helper-label"
+                        id="demo-simple-select-helper"
+                        laCategory="Rol"
+                        {...register("role", {})}
+                        sx={errors.role ? sxError : sxCorrect}
+                        error={errors.role ? true : false}
+                    >
+                        {roles.map(({ uid, role }) => (
+                            <MenuItem key={uid} value={role}>
+                                {role}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    {
+                        errors.role &&
+                        <FormHelperText
+                            className='text-[#d32c28]'
+                        >
+                            {errors.role.message}
+                        </FormHelperText>
+                    }
+                </FormControl>
+            }
 
 
             <FormControl
@@ -155,7 +157,7 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, infoUser }: 
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
-                                        className={`${errors.password ? 'text-[#d32c28]' : 'text-white'}`}
+                                        className={`${errors.password ? 'text-[#d32c28]' : 'text-[--trxt_color]'}`}
                                         aria-label="toggle password visibility"
                                         onClick={handleClickShowPassword}
                                         onMouseDown={handleMouseDownPassword}
@@ -185,7 +187,7 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, infoUser }: 
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
-                                        className={`${errors.password ? 'text-[#d32c28]' : 'text-white'}`}
+                                        className={`${errors.password ? 'text-[#d32c28]' : 'text-[--text_color]'}`}
                                         aria-label="toggle password visibility"
                                         onClick={handleClickShowPassword}
                                         onMouseDown={handleMouseDownPassword}

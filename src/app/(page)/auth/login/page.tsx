@@ -184,7 +184,7 @@ export default function Page() {
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
-                        className={`${errors.password ? 'text-[#d32c28]' : 'text-white'}`}
+                        className={`${errors.password ? 'text-[#d32c28]' : 'text-[--trxt_color]'}`}
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}

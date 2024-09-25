@@ -133,9 +133,9 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                 dataModal={dataModal}
                 redirect={setIsRedirect}
             />
-            <div className="overflow-x-auto max-h-80">
+            <div className="overflow-x-auto max-h-80 shadow-lg">
                 <table className="border border-slate-500 min-w-full bg-transparent border-collapse">
-                    <thead className='bg-[#053b5e] text-white uppercase text-sm'>
+                    <thead className='bg-[--primary] text-white uppercase text-sm'>
                         <tr>
                             <th className="p-4 border border-slate-600 text-start">
                                 <input
@@ -158,13 +158,13 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                     <tbody>
                         {users.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="text-center p-4 text-white">
+                                <td colSpan={5} className="text-center p-4 text-[--text_color]">
                                     No hay usuarios disponibles
                                 </td>
                             </tr>
                         ) : (
                             users.map(user => (
-                                <tr key={user.uid}>
+                                <tr key={user.uid} className='text-[--text_color]'>
                                     <td className="p-4 border border-slate-700">
                                         <input
                                             type="checkbox"
@@ -180,7 +180,7 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                                         <Tooltip title="Editar">
                                             <IconButton
                                                 disabled={selectedUsers.length === 0 ? false : true}
-                                                className='text-blue-500 hover:text-blue-700 mr-5'
+                                                className='text-[--primary] hover:text-[--secondary] mr-5'
                                             >
                                                 {selectedUsers.length === 0 ?
                                                     <Link href={`/admin/manageUsers/updateUser/${user.uid}`}>

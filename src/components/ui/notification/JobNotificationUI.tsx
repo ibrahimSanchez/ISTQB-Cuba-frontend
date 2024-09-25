@@ -65,14 +65,14 @@ export const JobNotificationUI = ({ jobApplication, loadJobApplicationData, setL
 
             <div
                 //  ${view ? 'bg-[#1b1d1f]' : 'bg-[#111416]'}   #### añadir abajo
-                className={`relative flex justify-between items-center bg-[#1b1d1f]
+                className={`relative flex justify-between items-center ${approved ? 'bg-[--primary]' : 'bg-[--secondary]'} 
                      border border-[#0e2c68] rounded shadow-md p-3 mb-2 transition-shadow duration-300 ease-in-out ${hovered ? 'shadow-sm shadow-[#0e2c68]' : ''}`}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
                 <Link href={`/admin/manageJobApplications/jobApplication/${uid}`}
                     className="flex-1">
-                    <h3 className="text-[#1d8bd2] font-semibold inline">Solicitud de trabajo</h3>
+                    <h3 className="text-[--page_background] font-semibold inline">Solicitud de trabajo</h3>
                     <span className="text-[#527186] text-sm mx-10 inline">{nameUser}</span>
                 </Link>
                 {!hovered ? (

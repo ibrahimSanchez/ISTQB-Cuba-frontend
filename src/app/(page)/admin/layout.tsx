@@ -21,7 +21,10 @@ export default function RootLayout({ children }: Readonly<{
           {
             clsx({
               'Gestión de usuarios': pathname === '/admin/manageUsers',
-              "Gestión de solicitudes de trabajo": pathname === '/admin/manageJobApplications'
+              "Gestión de solicitudes de trabajo": pathname === '/admin/manageJobApplications',
+              "Modificar información de usuario": pathname.includes('/admin/manageUsers/updateUser/'),
+              "Crear cuenta de usuario": pathname === '/admin/manageUsers/addUser',
+              "Solicitud de trabajo": pathname.includes('/admin/manageJobApplications/jobApplication/')
             })
           }
         </h1>
@@ -40,7 +43,7 @@ export default function RootLayout({ children }: Readonly<{
               }>
                 <FaUsersCog
                   size={20}
-                  className='gradient-card w-8 h-8 p-2 rounded-full text-white'
+                  className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
                 />
               </Link>
             </IconButton>
@@ -58,7 +61,7 @@ export default function RootLayout({ children }: Readonly<{
               }>
                 <MdOutlineWork
                   size={20}
-                  className='gradient-card w-8 h-8 p-2 rounded-full text-white'
+                  className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
                 />
               </Link>
             </IconButton>

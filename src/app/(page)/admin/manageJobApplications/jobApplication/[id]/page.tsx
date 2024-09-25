@@ -153,13 +153,13 @@ export default function Page({ params }: Props) {
                         <div className="flex justify-between">
 
                             <div className="">
-                                <h1 className="subTitle mb-10">
+                                <h2 className="subTitle mb-10">
                                     {jobApplication?.nameUser}
-                                </h1>
-
-                                <h2 className="text mb-10">
-                                    {jobApplication?.emailUser}
                                 </h2>
+
+                                <h3 className="text mb-10">
+                                    {jobApplication?.emailUser}
+                                </h3>
                             </div>
 
                             <div>
@@ -193,7 +193,7 @@ export default function Page({ params }: Props) {
                             </div>
                         </div>
 
-                        <p className="w-full">
+                        <p className="w-full text-[--text_color]">
                             {jobApplication?.description}
                         </p>
                     </div>

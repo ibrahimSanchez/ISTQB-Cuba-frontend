@@ -11,7 +11,7 @@
   --secondary: #022b3a;
   --text_color: #3f3f3f;
   --text_secondary_color: #545454;
-  --card: #d5e8f8;
+  --card: #f1f3f5;
 }
 
 
@@ -77,11 +77,11 @@ body {
 }
 
 .gradient-card {
-  background: linear-gradient(to left, transparent, #145b84) #1e1e1e;
+  background: linear-gradient(to left, transparent, #13374b) #722328
 }
 
 .gradient-card2 {
-  background: linear-gradient(to top, transparent, #145b84) #1e1e1e;
+  background: linear-gradient(to left, transparent, var(--primary)) var(--secondary)
 }
 
 
@@ -231,17 +231,17 @@ body {
 
 .search-bar {
   padding: 0.5rem;
-  border: 1px solid #3a3a3a;
+  border: 1px solid var(--secondary);
   border-radius: 5px;
-  background-color: #2a2a2a;
-  color: #e0e0e0;
+  background-color: var(--primary);
+  color: #fff;
   transition: border-color 0.3s, background-color 0.3s;
   white-space: nowrap;
 }
 
 .search-bar:focus {
   border-color: #ffffff;
-  background-color: #1e1e1e;
+  background-color: var(--secondary);
   outline: none;
 }
 
@@ -421,7 +421,7 @@ body {
 /* Section 2 */
 
 .build-skills-section {
-  background-color: #fafbfb;
+  background-color: #d7d7d7;
   color: var(--text_color);
   padding: 3rem 0 5rem 0;
   text-align: center;
@@ -532,15 +532,16 @@ body {
   user-select: none;
   font-size: 14px;
   font: bold;
+  color: var(--text_color);
 }
 
 .btnLink:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--secondary);
 }
 
 .btnLinkActive {
-  border-bottom: 2px solid #0f74b8;
-  color: #0f74b8;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 

@@ -65,12 +65,12 @@ export const NotificationUI = ({ notification, loadNotificationData, setLoadNoti
             />
 
             <div
-                className={`relative flex justify-between items-center ${view ? 'bg-[#1b1d1f]' : 'bg-[#111416]'} border border-[#0e2c68] rounded shadow-md p-3 mb-2 transition-shadow duration-300 ease-in-out ${hovered ? 'shadow-sm shadow-[#0e2c68]' : ''}`}
+                className={`relative flex justify-between items-center ${view ? 'bg-[--primary]' : 'bg-[--secondary]'} border border-[--navbar] rounded shadow-md p-3 mb-2 transition-shadow duration-300 ease-in-out ${hovered ? 'shadow-sm shadow-[#0e2c68]' : ''}`}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
                 <div className="flex-1">
-                    <h3 className="text-[#1d8bd2] font-semibold inline">{theme}</h3>
+                    <h3 className="text-[--page_background] font-semibold inline">{theme}</h3>
                     <span className="text-[#527186] text-sm mx-10 inline">{message}</span>
                 </div>
                 {!hovered ? (

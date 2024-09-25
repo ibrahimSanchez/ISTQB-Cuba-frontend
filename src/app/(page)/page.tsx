@@ -21,13 +21,13 @@ export default function Home() {
             <Link href="/certifications">
               <Button
                 className="btn-primary m-3 p-4 rounded-xl btn-animate">
-                Nuestras Certificaciones
+                Nuestras certificaciones
               </Button>
             </Link>
 
             <Link href="/workWithUs">
               <Button className="btn-secondary m-3 p-4 rounded-xl btn-animate">
-                Trabaja Con Nosotros
+                Trabaja con nosotros
               </Button>
             </Link>
 

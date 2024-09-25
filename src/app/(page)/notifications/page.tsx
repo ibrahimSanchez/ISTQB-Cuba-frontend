@@ -33,6 +33,7 @@ export default function Notifications() {
           <p className="text-gray-400">No hay notificaciones.</p>
         )
       }
+      
     </div>
   )
 }

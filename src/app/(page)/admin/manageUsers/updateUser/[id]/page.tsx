@@ -127,22 +127,23 @@ export default function Page({ params }: Props) {
             />
             <div className="flex flex-col text-center">
 
-                <h1 className="subTitle">Modificar información de usuario</h1>
+                <div className="flex flex-col items-center mt-6">
+                    <div className='bg-[#fafbfb] p-10 rounded-3xl shadow-2xl shadow-black'>
 
-                <div className="flex flex-col items-center mt-10">
+                        <form
+                            name='Actualizar Usuario'
+                            className='flex flex-col'
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
+                            <CreateAccountUserForm
+                                errors={errors}
+                                register={register}
+                                isUpdate={true}
+                                infoUser={infoUser}
+                            />
+                        </form>
 
-                    <form
-                        name='Actualizar Usuario'
-                        className='flex flex-col'
-                        onSubmit={handleSubmit(onSubmit)}
-                    >
-                        <CreateAccountUserForm
-                            errors={errors}
-                            register={register}
-                            isUpdate={true}
-                            infoUser={infoUser}
-                        />
-                    </form>
+                    </div>
 
                 </div>
             </div>

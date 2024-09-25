@@ -40,7 +40,7 @@ export const SearchBar = ({ setDataToShow, allData, searchCriteria }: Props) => 
             <div className="max-w-lg mx-auto">
                 <div className="flex">
                     <select
-                        className="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium text-white bg-[#2a2a2a] border border-[#3a3a3a] rounded-s-lg hover:bg-[#3c3b3b] "
+                        className="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium text-white bg-[--primary] border border-[--secondary] rounded-s-lg hover:bg-[--secondary] hover:border-[--primary]"
                         onChange={handleChangeSelect}
                         value={criteriaSelect}
                     >

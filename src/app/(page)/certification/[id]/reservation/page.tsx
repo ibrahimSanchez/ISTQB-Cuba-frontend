@@ -9,6 +9,7 @@ import { getCookie } from '@/helper';
 import Link from 'next/link';
 import { ModalAnswer } from '@/components';
 import { DataModal, Reservation } from '@/interfaces';
+import { Button } from '@mui/material';
 
 
 interface Props {
@@ -102,7 +103,7 @@ export default function Page({ params }: Props) {
 
 
 
-            <h1 className="text-5xl mb-5">Solicitar reservación</h1>
+            <h1 className="title text-5xl mb-5">Solicitar reservación</h1>
 
             <div className="flex flex-col">
 
@@ -154,11 +155,11 @@ export default function Page({ params }: Props) {
 
 
 
-                    <button
-                        className='px-4 py-2 rounded-full bg-[#007bff] hover:bg-[#0056b3] text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500'
+                    <Button
+                        className='px-4 py-2 rounded-full btn-primary'
                     >
                         Solicitar
-                    </button>
+                    </Button>
 
                     <Link
                         href={`/certification/${id}`}
