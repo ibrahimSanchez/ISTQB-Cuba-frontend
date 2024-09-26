@@ -53,6 +53,7 @@ export const FilterData = ({ setDataToShow, allData, filterCriteria }: Props) =>
                 <InputLabel id="demo-simple-select-label">Filtrar</InputLabel>
                 <Select
                     size="small"
+                    // className="bg-[--primary] text-white"
                     sx={sxCorrect}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

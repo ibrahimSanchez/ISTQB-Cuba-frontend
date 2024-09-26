@@ -11,12 +11,12 @@ export const PageNotFound = () => {
         >
 
             <div className="text-center px-5 mx-5">
-                <h2 className="antialiased text-9xl">404</h2>
-                <p className="font-semibold text-xl mt-5">Lo sentimos mucho</p>
+                <h2 className="antialiased text-[--primary] text-9xl">404</h2>
+                <p className="font-semibold text-[--text_color] text-xl mt-5">Lo sentimos mucho</p>
                 <p
                     className="font-light"
                 >
-                    <span>Puedes regresar al </span>
+                    <span className="text-[--text_color]">Puedes regresar al </span>
                     <Link
                         className="font-normal hover:underline transition-all text-blue-400"
                         href='/'

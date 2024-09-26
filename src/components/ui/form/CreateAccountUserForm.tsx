@@ -223,6 +223,7 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = fal
             </FormControl>
 
             <Button
+                sx={{ textTransform: "none" }}
                 variant="contained"
                 size='large'
                 type='submit'

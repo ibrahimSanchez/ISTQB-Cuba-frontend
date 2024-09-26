@@ -19,14 +19,14 @@ export default function Home() {
           </p>
           <div className="welcome-buttons block md:flex md:justify-between">
             <Link href="/certifications">
-              <Button
-                className="btn-primary m-3 p-4 rounded-xl btn-animate">
+              <Button 
+                className="btn-primary btn-animate">
                 Nuestras certificaciones
               </Button>
             </Link>
 
             <Link href="/workWithUs">
-              <Button className="btn-secondary m-3 p-4 rounded-xl btn-animate">
+              <Button className="btn-secondary btn-animate">
                 Trabaja con nosotros
               </Button>
             </Link>
@@ -39,36 +39,36 @@ export default function Home() {
       {/* Section 2 */}
       <section className="build-skills-section" >
         <div className="container">
-          <h2 className="title">Build Your Testing Skills</h2>
+          <h2 className="title">Desarrolle sus habilidades de prueba</h2>
 
           <div className="cards">
 
             <CardText
-              title="Find a Certification"
-              text="Explore key information and download syllabi and sample exams in our free knowledge base"
+              title="Encuentre una certificación"
+              text="Explore información clave y descargue programas de estudios y exámenes de muestra en nuestra base de conocimientos gratuita"
               link="/certifications"
-              textLink="Our certifications"
+              textLink="Nuestras certificaciones"
             />
-
+{/* 
             <CardText
-              title="Find Accredited Training"
-              text="Choose from more than 300 leading accredited training providers around the world"
+              title="Encuentre formación acreditada"
+              text="Elija entre más de 300 proveedores de formación acreditados líderes en todo el mundo"
               link="/training/trainedProvided"
-              textLink="Accredited training providers"
-            />
+              textLink="Proveedores de formación acreditados"
+            /> */}
 
             <CardText
-              title="Find an Exam"
-              text="Identify exam providers in your area who offer your selected certification exam"
+              title="Encontrar un examen"
+              text="Identifique proveedores de exámenes en su área que ofrezcan el examen de certificación seleccionado"
               link="/training/examProvided"
-              textLink="Exam providers"
+              textLink="Proveedores de exámenes"
             />
 
             <CardText
-              title="Check out the Successful Candidate Register (SCR)"
-              text="Browse the list of certified individuals"
+              title="Consulte el Registro de candidatos exitosos (SCR)"
+              text="Explore la lista de personas certificadas"
               link="/scr"
-              textLink="Our SCR"
+              textLink="Nuestra SCR"
             />
 
           </div>
@@ -81,7 +81,7 @@ export default function Home() {
       <section className="py-20 sm:px-14 flex flex-col text-center section" id="workWithUs" >
 
         <h2 className="title mb-6">
-          Trabaja Con Nosotros Y Participa
+          Trabaja con nosotros y participa
         </h2>
 
         <p className="leading-8 text-[--text_color] p-[1rem]">
@@ -95,37 +95,37 @@ export default function Home() {
 
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />
           <CardImgText
             img="image-2.jpg"
-            title="Únase A Nuestro Programa De Socios"
+            title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
             textLink="#"
           />

@@ -130,8 +130,6 @@ export default function Page({ params }: Props) {
             />
             <div className="flex flex-col min-h-screen text-center">
 
-                <h1 className="subTitle mb-10">Modificar Certificación</h1>
-
                 <form
                     className="space-y-4 flex justify-center"
                     onSubmit={handleSubmit(onSubmit)}

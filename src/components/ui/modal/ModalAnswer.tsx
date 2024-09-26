@@ -19,7 +19,7 @@ export const ModalAnswer = ({ isOpen, onClose, isError, dataModal, redirect }: P
     const { text, title } = dataModal;
 
     const styleInput = {
-        correct: 'border-gray-100',
+        correct: 'border-[--primary]',
         error: ' border-red-600'
     };
 
@@ -33,16 +33,16 @@ export const ModalAnswer = ({ isOpen, onClose, isError, dataModal, redirect }: P
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
 
             <div className={`
-                bg-[#141515] rounded-lg shadow-lg p-6 max-w-sm mx-auto border ${isError ? styleInput.error : styleInput.correct}
+                bg-[--card] rounded-lg shadow-lg p-6 max-w-sm mx-auto border ${isError ? styleInput.error : styleInput.correct}
                 `}>
 
-                <h2 className="text-lg font-semibold mb-4">{title}</h2>
-                <p className="mb-6">{text}</p>
+                <h2 className="text-lg font-semibold mb-4 text-[--primary]">{title}</h2>
+                <p className="mb-6 text-[--text_color]">{text}</p>
                 <button
                     onClick={handleClick}
                     className={`
                         w-full text-white font-semibold py-2 rounded-xl
-                        ${isError ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'}
+                        ${isError ? 'bg-red-700 hover:bg-red-900' : 'bg-[--primary] hover:bg-[--secondary]'}
                         `}
                 >
                     Cerrar

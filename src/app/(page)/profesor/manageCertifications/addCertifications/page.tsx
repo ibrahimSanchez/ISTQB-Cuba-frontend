@@ -51,7 +51,7 @@ export default function Page() {
     } catch (error: any) {
       setIsError(true);
       const msgModal: DataModal = {
-        title: 'Añadir Certificación',
+        title: 'Añadir certificación',
         text: error.response.data.errors[0].msg
       }
       setDataModal(msgModal)
@@ -74,20 +74,18 @@ export default function Page() {
         redirect={setIsRedirect}
       />
 
-      
-        <form
-          className="space-y-4 flex justify-center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+      <form
+        className="space-y-4 flex justify-center"
+        onSubmit={handleSubmit(onSubmit)}
+      >
 
-          <CertificationForm
-            errors={errors}
-            register={register}
-            isUpdate={false}
-          />
+        <CertificationForm
+          errors={errors}
+          register={register}
+          isUpdate={false}
+        />
 
-        </form>
-
+      </form>
     </>
   )
 }

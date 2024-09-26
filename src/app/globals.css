@@ -17,7 +17,7 @@
 
 
 body {
-  color: #fff;
+  color: var(--text_color);
   /* background: linear-gradient(to right, #1e1e1e, #2a2a2a); */
   background: var(--page_background);
   font-family: sans-serif;
@@ -120,12 +120,6 @@ body {
 .active {
   @apply underline text-blue-950
 }
-
-
-.btn- {
-  @apply underline text-blue-950
-}
-
 
 
 
@@ -334,6 +328,10 @@ body {
 }
 
 .btn-primary {
+  padding: .7rem 1rem;
+  border-radius: .8rem;
+  font-size: medium;
+  text-transform: none;
   transition: background-color 0.3s, color 0.3s;
   box-shadow: 0 10px 26px -14px rgb(6 4 4);
   white-space: nowrap;
@@ -349,7 +347,12 @@ body {
 }
 
 .btn-secondary {
+  padding: .7rem 1rem;
+  border-radius: .8rem;
+  font-size: medium;
+  text-transform: none;
   transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
   box-shadow: 0 10px 26px -14px rgb(6 4 4);
   color: var(--primary);
   background-color: transparent;

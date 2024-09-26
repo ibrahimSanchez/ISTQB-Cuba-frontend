@@ -126,6 +126,7 @@ export default function Page() {
               href="/auth/login"
             >
               <Button
+                sx={{ textTransform: "none" }}
                 variant="outlined"
                 size='large'
                 className='w-full border-[#053b5e] hover:border-[#062b43] hover:bg-[#062b43] text-[#053b5e] hover:text-white shadow-lg'

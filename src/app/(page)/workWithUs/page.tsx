@@ -4,7 +4,7 @@ import { JobApplicationForm } from "@/components";
 export default function Page() {
 
     return (
-        <section className="main-h-screen mt-16 px-8 sm:px-14">
+        <section className="main-h-screen px-8 sm:px-14">
 
             <div className="mx-auto px-4 sm:px-6 lg:px-8 mb-8">
 

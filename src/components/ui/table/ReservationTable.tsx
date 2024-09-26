@@ -171,7 +171,7 @@ export const ReservationTable = ({
             <div className="overflow-x-auto max-h-80">
 
                 <table className="border border-slate-500 min-w-full bg-transparent border-collapse">
-                    <thead className='bg-[#053b5e] text-white uppercase text-sm'>
+                    <thead className='bg-[--primary] text-white uppercase text-sm'>
                         <tr>
                             <th className="p-4 border border-slate-600 text-start">
                                 <input
@@ -194,13 +194,13 @@ export const ReservationTable = ({
                     <tbody>
                         {reservations.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="text-center p-4 text-white">
+                                <td colSpan={5} className="text-center p-4 text-[--text_color]">
                                     No hay reservaciones disponibles
                                 </td>
                             </tr>
                         ) : (
                             reservations.map(({ uid, approved, certificationId, userId }) => (
-                                <tr key={uid}>
+                                <tr key={uid} className='text-[--text_color]'>
                                     <td className="p-4 border border-slate-700">
                                         <input
                                             type="checkbox"
@@ -220,7 +220,7 @@ export const ReservationTable = ({
                                         <Tooltip title="Aprobar">
                                             <IconButton
                                                 disabled={approved}
-                                                className='text-blue-500 hover:text-blue-700 mr-5'
+                                                className='text-[--primary] hover:text-[--secondary] mr-5'
                                                 onClick={() => approvedReservation(uid)}
                                             >
                                                 <FaCheckCircle size={20} />

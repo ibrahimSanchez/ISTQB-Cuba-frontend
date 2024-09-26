@@ -20,7 +20,7 @@ export default function Certifications() {
     try {
       const res = await getCertification();
       setCertificationData(res.data.certifications);
-      console.log(res.data.certifications)
+      // console.log(res.data.certifications)
     } catch (error) {
       console.log(error);
     }
@@ -43,9 +43,9 @@ export default function Certifications() {
   }, []);
 
   return (
-    <div className="mt-16 px-8 sm:px-14">
+    <div className="px-8 sm:px-14">
 
-      <h1 className="title mb-2">Nuestras Certificaciones</h1>
+      <h1 className="title mb-2">Nuestras certificaciones</h1>
       {/* line separator */}
       <div className="w-full h-1 bg-blue-950 mb-4"></div>
 

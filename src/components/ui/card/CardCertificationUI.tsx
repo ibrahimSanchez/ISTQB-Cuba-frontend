@@ -71,7 +71,7 @@ export const CardCertificationUI = ({ certification, loadData, setLoadData }: Pr
                     Precio: {prise}
                 </p>
 
-                <p className="mt-3 font-normal text-xs text-gray-300 pb-5 px-5">
+                <p className="mt-3 font-normal text-xs text-[--text_color] pb-5 px-5">
                     {textShowDescription}
                 </p>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link"
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
@@ -37,6 +37,9 @@ export const OptionUser = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
+  const pathname = usePathname();
 
   return (
     <>
@@ -104,8 +107,8 @@ export const OptionUser = () => {
           !userAuth?.logged && (
             <Link
               href="/auth/login"
-              className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
-              role="menuitem"
+              className={`${pathname.includes("/auth/") ? "active" : ""}
+              flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300`} role="menuitem"
             >
               <IoIosLogIn
                 size={35}
@@ -129,8 +132,9 @@ export const OptionUser = () => {
                 Cerrar sesión
               </div>
               <Link
+                className={`${pathname === "/notifications" ? "active" : ""}
+                flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300`}
                 href="/notifications"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
                 role="menuitem"
               >
                 <IoIosNotifications
@@ -142,8 +146,8 @@ export const OptionUser = () => {
 
               <Link
                 href="/profesor"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
-                role="menuitem"
+                className={`${pathname.includes("/profesor") ? "active" : ""}
+                flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300`} role="menuitem"
               >
                 <FaChalkboardTeacher
                   size={35}
@@ -153,10 +157,10 @@ export const OptionUser = () => {
               </Link>
 
               <Link
-
-                href="/admin/manageUsers"
-                className="flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300"
+                className={`${pathname.includes("/admin/") ? "active" : ""}
+                flex items-center px-4 py-2 text-sm text-white hover:bg-[--primary] hover:text-gray-300`}
                 role="menuitem"
+                href="/admin/manageUsers"
               >
                 <IoPerson
                   size={35}

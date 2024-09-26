@@ -218,10 +218,11 @@ export default function Page() {
               </FormControl>
 
               <Button
+                sx={{ textTransform: "none" }}
                 variant="contained"
                 size='large'
                 type='submit'
-                className='w-full btn-primary'
+                className='bg-[#053b5e] hover:bg-[#062b43] shadow-lg'
               >
                 Iniciar
               </Button>
@@ -241,10 +242,10 @@ export default function Page() {
               href="/auth/new-account"
             >
               <Button
+                sx={{ textTransform: "none" }}
                 variant="outlined"
                 size='large'
-                // className='w-full border-[#053b5e] hover:border-[#062b43] hover:bg-[#062b43] text-[#053b5e] hover:text-white shadow-lg'
-                className='w-full btn-secondary'
+                className='w-full border-[#053b5e] hover:border-[#062b43] hover:bg-[#062b43] text-[#053b5e] hover:text-white shadow-lg'
               >
                 Crear una cuenta nueva
               </Button>

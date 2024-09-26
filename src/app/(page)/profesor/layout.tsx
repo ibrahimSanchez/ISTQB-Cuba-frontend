@@ -16,14 +16,15 @@ export default function RootLayout({ children }: Readonly<{
   return (
 
     <>
-      <section className="main-h-screen mt-16 px-8 sm:px-14 mb-12">
+      <section className="main-h-screen mt-8 px-8 sm:px-14">
         <div className='sm:flex justify-between'>
           <h1 className="text-3xl font-bold mb-6 title">
             {
               clsx({
-                "Administración de Certificaciones": pathname === '/profesor',
+                "Administración de certificaciones": pathname === '/profesor',
                 "Añadir certificación": pathname === '/profesor/manageCertifications/addCertifications',
-                "Gestión de reservaciones": pathname === '/profesor/manageReservations'
+                "Gestión de reservaciones": pathname === '/profesor/manageReservations',
+                "Modificar certificación": pathname.includes("/profesor/manageCertifications/updateCertification/")
               })
             }
           </h1>
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: Readonly<{
                 }>
                   <FaHome
                     size={20}
-                    className='gradient-card w-8 h-8 p-2 rounded-full text-white'
+                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
                   />
                 </Link>
               </IconButton>
@@ -60,7 +61,7 @@ export default function RootLayout({ children }: Readonly<{
                 }>
                   <FaPlus
                     size={20}
-                    className='gradient-card w-8 h-8 p-2 rounded-full text-white'
+                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
                   />
 
                 </Link>
@@ -80,7 +81,7 @@ export default function RootLayout({ children }: Readonly<{
                 }>
                   <MdManageAccounts
                     size={30}
-                    className='gradient-card w-8 h-8 p-2 rounded-full text-white'
+                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
                   />
                 </Link>
               </IconButton>

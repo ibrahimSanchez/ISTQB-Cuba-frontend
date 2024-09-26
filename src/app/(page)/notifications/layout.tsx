@@ -42,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{
   const pathname = usePathname();
 
   return (
-    <div className="mt-16 px-8 sm:px-14">
+    <div className="mt-8 px-8 sm:px-14">
 
       <div className='sm:flex justify-between items-center'>
         < h1 className="title mb-6" > Notificaciones</ h1>
