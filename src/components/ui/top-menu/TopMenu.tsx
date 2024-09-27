@@ -53,8 +53,8 @@ export const TopMenu = () => {
                 </li>
                 <li>
                     <Link
-                        className={`${pathname === "/aa" ? "active" : ""}`}
-                        href="#scr">SCR
+                        className={`${pathname === "/SCR" ? "active" : ""}`}
+                        href="/SCR">SCR
                     </Link>
                 </li>
                 <li>

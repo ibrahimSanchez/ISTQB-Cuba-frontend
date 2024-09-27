@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section className="welcome-section">
         <div className="welcome-content">
-          <h2 className="title">Bienvenido a ISTQB®</h2>
+          <h2 className="title">Centro de certificación ISTQB® Cuba</h2>
           <p>
             ISTQB® es el esquema líder de certificación global en el campo de las pruebas de software.
             Hasta junio de 2023, ISTQB® ha administrado 1,3 millones de exámenes y emitido más de 957k certificaciones en más de 130 países. Con su extensa red de Proveedores de Capacitación Acreditados, Juntas de Miembros y Proveedores de Exámenes, ISTQB® es uno de los esquemas de certificación profesional neutrales en proveedor más grandes y establecidos del mundo.
@@ -19,7 +19,7 @@ export default function Home() {
           </p>
           <div className="welcome-buttons block md:flex md:justify-between">
             <Link href="/certifications">
-              <Button 
+              <Button
                 className="btn-primary btn-animate">
                 Nuestras certificaciones
               </Button>
@@ -49,7 +49,7 @@ export default function Home() {
               link="/certifications"
               textLink="Nuestras certificaciones"
             />
-{/* 
+            {/* 
             <CardText
               title="Encuentre formación acreditada"
               text="Elija entre más de 300 proveedores de formación acreditados líderes en todo el mundo"
@@ -94,40 +94,45 @@ export default function Home() {
         <div className="cards">
 
           <CardImgText
-            img="image-2.jpg"
-            title="Únase a nuestro programa de socios"
-            text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            img="image-4.png"
+            title="Nominaciones al premio a la excelencia ISTQB®"
+            text="Ayude a ISTQB® a identificar a los influyentes en la profesión de pruebas de software y celebre sus logros."
+            textLink="https://www.istqb.org/podcast"
           />
+
           <CardImgText
-            img="image-2.jpg"
+            img="image-2.png"
             title="Únase a nuestro programa de socios"
             text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            textLink="https://partner.istqb.org/"
           />
+
           <CardImgText
-            img="image-2.jpg"
-            title="Únase a nuestro programa de socios"
-            text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            title="Conviértase en proveedor de formación acreditado"
+            text="Mejore su posición como proveedor de formación con el reconocimiento oficial de ISTQB® Cuba."
+            img="image-1.png"
+            textLink="https://www.istqb.org/become-a-training-provider"
           />
+
           <CardImgText
-            img="image-2.jpg"
-            title="Únase a nuestro programa de socios"
-            text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            title="Únase a la red de conferencias"
+            text="Promocione su conferencia a una audiencia global con el respaldo de la Red de Conferencias del ISTQB®."
+            img="image-3.png"
+            textLink="https://www.istqb.org/conference-network"
           />
+
           <CardImgText
-            img="image-2.jpg"
-            title="Únase a nuestro programa de socios"
-            text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            title="Nominaciones al premio a la excelencia ISTQB®"
+            text="Ayude a ISTQB® a identificar a los influyentes en la profesión de pruebas de software y celebre sus logros."
+            img="image-5.png"
+            textLink="https://awards.istqb.org/"
           />
+
           <CardImgText
-            img="image-2.jpg"
-            title="Únase a nuestro programa de socios"
-            text="Aumente la confianza en las habilidades de prueba de su equipo y obtenga una ventaja competitiva como socio de ISTQB®"
-            textLink="#"
+            title="Únase a nuestro compendio de investigación académica"
+            text="Extienda el alcance de su audiencia publicando sus investigaciones en el compendio del ISTQB® en Cuba."
+            img="image-6.png"
+            textLink="https://www.istqb.org/academia/research-compendium"
           />
 
         </div>

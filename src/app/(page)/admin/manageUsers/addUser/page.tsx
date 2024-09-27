@@ -38,7 +38,7 @@ export default function Page() {
 
     const onSubmit: SubmitHandler<User> = async (data) => {
 
-        data.role = 'USER_ROLE';
+        // data.role = 'USER_ROLE';
 
         try {
             const res = await newAccount(data);
@@ -99,7 +99,7 @@ export default function Page() {
                             <CreateAccountUserForm
                                 errors={errors}
                                 register={register}
-                                isUpdate={false}
+                                isUpdate={true}
                             />
 
                         </form>

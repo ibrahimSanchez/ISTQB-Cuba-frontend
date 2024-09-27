@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="mt-16 px-8 sm:px-14">
+    <div className="mt-8 px-8 sm:px-14">
 
       <h1 className="title mb-2">Sobre nosotros</h1>
       {/* line separator */}

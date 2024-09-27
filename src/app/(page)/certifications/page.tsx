@@ -62,13 +62,15 @@ export default function Certifications() {
       </div>
 
       {
-        categories.map(({ category, uid }) =>
-          <SectionCertification
-            key={uid}
-            level={category}
-            certifications={certificationData}
-          />
-        )
+        certificationData.length === 0 ?
+          <p className="underline">No hay certificaciones que mostrar</p> :
+          categories.map(({ category, uid }) =>
+            <SectionCertification
+              key={uid}
+              level={category}
+              certifications={certificationData}
+            />
+          )
       }
 
     </div>

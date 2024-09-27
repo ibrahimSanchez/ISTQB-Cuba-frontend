@@ -62,7 +62,7 @@ export default function Notifications() {
             ))}
           </div>
         ) : (
-          <p className="text-gray-400">No hay solicitudes de trabajo.</p>
+          <p>No hay solicitudes de trabajo.</p>
         )
       }
 

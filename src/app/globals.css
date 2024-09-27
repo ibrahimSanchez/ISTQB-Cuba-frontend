@@ -6,6 +6,7 @@
 
 :root {
   --page_background: #e5e8ea;
+  --page_background2: #d7d7d7;
   --navbar: #061920;
   --primary: #05425e;
   --secondary: #022b3a;
@@ -300,7 +301,7 @@ body {
 
 .welcome-content {
   padding: 1rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   animation: fadeIn 2s ease-in-out;
 }
@@ -424,7 +425,7 @@ body {
 /* Section 2 */
 
 .build-skills-section {
-  background-color: #d7d7d7;
+  background-color: var(--page_background2);
   color: var(--text_color);
   padding: 3rem 0 5rem 0;
   text-align: center;

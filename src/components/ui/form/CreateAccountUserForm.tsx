@@ -16,13 +16,19 @@ import {
 import { sxCorrect, sxError } from "@/utils";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";
-import { getRoles } from "@/api";
+import { getMunicipalities, getProvinces, getRoles } from "@/api";
 
 
 
 type Role = {
     uid: string;
     role: string;
+}
+
+type Direction = {
+    uid: string;
+    name: string;
+    provinceId?: string;
 }
 
 
@@ -53,10 +59,43 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = fal
         }
     }
 
+    const [provinces, setProvinces] = useState<Direction[]>([]);
+
+    const loadProvinces = async () => {
+        try {
+            const res = await getProvinces();
+            setProvinces(res.data.provinces)
+            // console.log(res)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const [municipalities, setMunicipalities] = useState<Direction[]>([]);
+
+    const loadMunicipalities = async () => {
+        try {
+            const res = await getMunicipalities();
+            setMunicipalities(res.data.municipalities)
+            // console.log(res)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    const [municipalitiesToShow, setMunicipalitiesToShow] = useState<Direction[]>([]);
+
+    const handleSelectProvince = (uid: string) => {
+        const data = municipalities.filter(({ provinceId }) => provinceId === uid);
+        setMunicipalitiesToShow(data);
+    }
 
 
     useEffect(() => {
-        isUpdate && loadRoles();
+        loadProvinces();
+        loadMunicipalities();
+        !isUser && loadRoles();
     }, []);
 
 
@@ -101,6 +140,99 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = fal
                 />
             </FormControl>
 
+            <FormControl className='mb-6'>
+                <TextField
+                    focused={isUpdate}
+                    id="outlined-basic"
+                    label="Carnet de identidad *"
+                    variant="outlined"
+                    sx={errors.ci ? sxError : sxCorrect}
+                    helperText={errors.ci && errors.ci.message}
+                    error={errors.ci ? true : false}
+                    {...register("ci", {
+                        required: 'El campo es requerido',
+                        pattern: {
+                            value: /[0-9]/,
+                            message: 'Introduce un email válido'
+                        }
+                    })}
+                />
+            </FormControl>
+
+
+            <FormControl className='mb-6' sx={errors.provinceId ? sxError : sxCorrect}>
+                <InputLabel
+                    className={`${errors.provinceId ? 'text-[#d32c28]' : ''}`}
+                    id="demo-simple-select-helper-label"
+                >
+                    Provincia *
+                </InputLabel>
+                <Select
+                    label="Provincia *"
+                    className="text-start"
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    laCategory="Provincia"
+                    {...register("provinceId", {})}
+                    sx={errors.provinceId ? sxError : sxCorrect}
+                    error={errors.provinceId ? true : false}
+                >
+                    {provinces.map(({ uid, name }) => (
+                        <MenuItem key={uid} value={uid} onClick={() => handleSelectProvince(uid)}>
+                            {name}
+                        </MenuItem>
+                    ))}
+                </Select>
+                {
+                    errors.provinceId &&
+                    <FormHelperText
+                        className='text-[#d32c28]'
+                    >
+                        {errors.provinceId.message}
+                    </FormHelperText>
+                }
+            </FormControl>
+
+
+            <FormControl className='mb-6' sx={errors.municipalityId ? sxError : sxCorrect}>
+                <InputLabel
+                    className={`${errors.municipalityId ? 'text-[#d32c28]' : ''}`}
+                    id="demo-simple-select-helper-label"
+                >
+                    Municipio *
+                </InputLabel>
+                <Select
+                    label="Municipio *"
+                    className="text-start"
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    laCategory="Provincia"
+                    {...register("municipalityId", {})}
+                    sx={errors.municipalityId ? sxError : sxCorrect}
+                    error={errors.municipalityId ? true : false}
+                >
+                    {municipalitiesToShow.length === 0 ?
+                        <MenuItem value=''>
+                            Debe seleccionar una provincia
+                        </MenuItem> :
+                        municipalitiesToShow.map(({ uid, name }) => (
+                            <MenuItem key={uid} value={uid}>
+                                {name}
+                            </MenuItem>
+                        ))
+                    }
+                </Select>
+                {
+                    errors.municipalityId &&
+                    <FormHelperText
+                        className='text-[#d32c28]'
+                    >
+                        {errors.municipalityId.message}
+                    </FormHelperText>
+                }
+            </FormControl>
+
+
             {
                 !isUser &&
                 <FormControl className='mb-6' sx={errors.role ? sxError : sxCorrect}>
@@ -111,6 +243,7 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = fal
                         Rol {!isUpdate && '*'}
                     </InputLabel>
                     <Select
+                        label="Rol *"
                         className="text-start"
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"

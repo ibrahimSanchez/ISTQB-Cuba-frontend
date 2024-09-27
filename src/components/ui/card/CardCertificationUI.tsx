@@ -67,7 +67,7 @@ export const CardCertificationUI = ({ certification, loadData, setLoadData }: Pr
                 </div>
 
 
-                <p className="mt-3 font-normal text-sm text-red-500 p-5">
+                <p className="mt-3 font-normal text-sm text-[#b13340] p-5">
                     Precio: {prise}
                 </p>
 
@@ -78,7 +78,7 @@ export const CardCertificationUI = ({ certification, loadData, setLoadData }: Pr
                 <div className="flex justify-between pb-5 px-5">
                     <Link
                         href={`/profesor/manageCertifications/updateCertification/${uid}`}
-                        className='bg-green-800 hover:bg-green-900 mr-5 text-white p-2 rounded-md flex'
+                        className='bg-[--primary] hover:bg-[--secondary] mr-5 text-white p-2 rounded-md flex'
                     >
                         Modificar
                         <FaPen
@@ -87,7 +87,7 @@ export const CardCertificationUI = ({ certification, loadData, setLoadData }: Pr
                         />
                     </Link>
                     <button
-                        className='bg-red-800 hover:bg-red-900 mr-5 text-white p-2 rounded-md flex'
+                        className='bg-[#68252c] hover:bg-[#4f1a1f] mr-5 text-white p-2 rounded-md flex'
                         onClick={() => toggleModalOption()}
                     >
                         Eliminar

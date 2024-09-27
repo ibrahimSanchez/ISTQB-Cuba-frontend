@@ -62,7 +62,7 @@ export default function Page({ params }: Props) {
 
                 <div className="flex justify-center">
                     {
-                        userAuth.logged ?
+                        userAuth?.logged  ?
                             <Link
                                 href={`/certification/${id}/reservation`}
                                 // className="p-6 block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition-colors"

@@ -45,7 +45,7 @@ const navItems = [
         text: 'Noticias'
     },
     {
-        path: '/scr',
+        path: '/SCR',
         text: 'SCR'
     },
     {

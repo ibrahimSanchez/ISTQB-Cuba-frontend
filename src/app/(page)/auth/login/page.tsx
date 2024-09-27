@@ -143,7 +143,7 @@ export default function Page() {
 
             <form
               name='login'
-              className='flex flex-col '
+              className='flex flex-col'
               onSubmit={handleSubmit(onSubmit)}
             >
 
