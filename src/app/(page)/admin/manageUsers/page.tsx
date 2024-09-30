@@ -39,6 +39,10 @@ export default function Page() {
   {
     name: 'Correo',
     value: 'email'
+  },
+  {
+    name: 'CI',
+    value: 'ci'
   }
   ];
 

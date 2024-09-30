@@ -15,13 +15,15 @@ export default function RootLayout({ children }: Readonly<{
   const pathname = usePathname();
 
   return (
-    <section className="mb-12 mt-16 px-8 sm:px-14">
+    <section className="mb-12 mt-8 px-8 sm:px-14">
       <div className='sm:flex justify-between'>
         <h1 className="text-3xl font-bold mb-6 title">
           {
             clsx({
               'Gestión de usuarios': pathname === '/admin/manageUsers',
-              "Gestión de solicitudes de trabajo": pathname === '/admin/manageJobApplications',
+              "Gestión de solicitudes de trabajo": (pathname === '/admin/manageJobApplications' ||
+                pathname === '/admin/manageJobApplications/approved' ||
+                pathname === '/admin/manageJobApplications/earrings'),
               "Modificar información de usuario": pathname.includes('/admin/manageUsers/updateUser/'),
               "Crear cuenta de usuario": pathname === '/admin/manageUsers/addUser',
               "Solicitud de trabajo": pathname.includes('/admin/manageJobApplications/jobApplication/')
@@ -37,7 +39,7 @@ export default function RootLayout({ children }: Readonly<{
                 clsx(
                   "btnLink",
                   {
-                    "btnLinkActive": pathname === '/admin/manageUsers'
+                    "btnLinkActive": pathname.includes('/admin/manageUsers')
                   }
                 )
               }>

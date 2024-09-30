@@ -32,7 +32,7 @@ type Direction = {
 }
 
 
-export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = false, infoUser }: any) => {
+export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = false }: any) => {
 
 
     const [showPassword, setShowPassword] = useState(false);
@@ -152,8 +152,16 @@ export const CreateAccountUserForm = ({ errors, register, isUpdate, isUser = fal
                     {...register("ci", {
                         required: 'El campo es requerido',
                         pattern: {
-                            value: /[0-9]/,
-                            message: 'Introduce un email válido'
+                            value: /^[0-9]+$/,
+                            message: 'Solo se permiten números'
+                        },
+                        maxLength: {
+                            value: 11,
+                            message: 'El Carnet de Identidad debe tener 11 dígitos'
+                        },
+                        minLength: {
+                            value: 11,
+                            message: 'El Carnet de Identidad debe tener 11 dígitos'
                         }
                     })}
                 />

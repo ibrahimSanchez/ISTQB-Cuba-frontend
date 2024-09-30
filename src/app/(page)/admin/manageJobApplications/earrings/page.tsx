@@ -82,7 +82,7 @@ export default function Notifications() {
             ))}
           </div>
         ) : (
-          <p className="text-gray-400">No hay notificaciones.</p>
+          <p>No hay notificaciones.</p>
         )
       }
 

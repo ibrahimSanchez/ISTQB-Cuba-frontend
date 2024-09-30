@@ -17,5 +17,5 @@ export * from './jobApplications';
 
 export * from './notifications';
 
-
+export * from './user_certification';
 

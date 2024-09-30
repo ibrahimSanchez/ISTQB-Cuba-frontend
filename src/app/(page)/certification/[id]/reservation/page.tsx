@@ -47,8 +47,12 @@ export default function Page({ params }: Props) {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<Reservation>()
-    const onSubmit: SubmitHandler<Reservation> = async (data) => {
+    } = useForm<Reservation>();
+
+    // const onSubmit: SubmitHandler<Reservation> = async () => {
+    const onSubmit = async () => {
+
+        let data: any = {};
 
         const token = JSON.parse(getCookie('USER_AUTH') || '').tokenAccess;
         const dataToken: any = decodeToken(token);
@@ -157,6 +161,7 @@ export default function Page({ params }: Props) {
 
                     <Button
                         className='px-4 py-2 rounded-full btn-primary'
+                        onClick={() => onSubmit()}
                     >
                         Solicitar
                     </Button>

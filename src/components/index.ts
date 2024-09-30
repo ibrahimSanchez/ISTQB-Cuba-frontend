@@ -24,7 +24,8 @@ export * from './ui/table/TableUI';
 export * from './ui/table/UserTable';
 export * from './ui/table/ReservationTable';
 export * from './ui/table/JobApplicationsTable';
-
+export * from './ui/table/User_certificationTable';
+export * from './ui/table/SCRTable';
 
 export * from './ui/form/JobApplicationForm';
 export * from './ui/form/CertificationForm';

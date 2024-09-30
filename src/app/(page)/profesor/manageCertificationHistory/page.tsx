@@ -1,34 +1,37 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { getCertification, getReservations, getUsers } from '@/api';
-import { Certification, FilterCriteria, Reservation, User } from '@/interfaces';
-import { FilterData, ReservationTable } from "@/components";
+import { getCertification, getUser_certification, getUsers } from '@/api';
+import { Certification, FilterCriteria, User, User_certification } from '@/interfaces';
+import { FilterData, User_certificationTable } from "@/components";
 
 
 export default function Page() {
 
-  const [reservations, setReservations] = useState<Reservation[]>([]);
-  const [dataToShow, setDataToShow] = useState<Reservation[]>([]);
+  const [user_certifications, setUser_certifications] = useState<User_certification[]>([]);
+  const [dataToShow, setDataToShow] = useState<User_certification[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [certifications, setCertifications] = useState<Certification[]>([]);
-  const [loadReservationData, setLoadReservationData] = useState(false);
+  const [loadUser_certificationsData, setLoadUser_certificationsData] = useState(false);
 
 
   useEffect(() => {
 
-    const loadReservations = async () => {
+    const loadUser_certifications = async () => {
       try {
-        const res = await getReservations();
-        const data = res.data.reservations;
+        const res = await getUser_certification();
+        const data = res.data.user_certifications;
         setDataToShow(data);
-        setReservations(data);
+        setUser_certifications(data);
         // console.log(res) 
 
       } catch (error) {
         console.log(error)
       }
     };
+
+
+
 
 
     const loadUser = async () => {
@@ -58,13 +61,13 @@ export default function Page() {
 
     loadCertification();
     loadUser();
-    loadReservations();
+    loadUser_certifications();
     // console.log(reservations)
-  }, [loadReservationData]);
+  }, [loadUser_certificationsData]);
 
 
   const criteria: FilterCriteria[] = [{
-    name: 'Aprobada',
+    name: 'Completadas',
     value: true
   },
   {
@@ -78,15 +81,16 @@ export default function Page() {
     <>
 
       <FilterData
-        allData={reservations}
+        allData={user_certifications}
         setDataToShow={setDataToShow}
         filterCriteria={criteria}
       />
 
-      <ReservationTable
-        loadReservationData={loadReservationData}
-        setLoadReservationData={setLoadReservationData}
-        reservations={dataToShow}
+
+      <User_certificationTable
+        loadUser_certificationsData={loadUser_certificationsData}
+        setLoadUser_certificationsData={setLoadUser_certificationsData}
+        user_certifications={dataToShow}
         users={users}
         certifications={certifications}
       />

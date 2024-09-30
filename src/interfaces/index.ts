@@ -7,3 +7,5 @@ export * from "./reservation.interface";
 export * from "./jobApplication.interface";
 export * from "./criteria.interface";
 export * from './notification.interface';
+export * from './user_certification.interface';
+export * from './resultDataSearch.interface';

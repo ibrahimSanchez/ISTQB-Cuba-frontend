@@ -107,6 +107,7 @@ body {
   font-family: 'Arial Black', sans-serif;
   color: var(--primary);
   animation: slideInFromTop 1.5s ease-in-out;
+  line-height: 1;
 }
 
 .subTitle {

@@ -1,151 +1,95 @@
 'use client';
 
-import { Button, FormControl, TextField } from "@mui/material"
-import { SubmitHandler, useForm } from "react-hook-form"
-import { sxCorrect, sxError } from "@/utils"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getCertification, getUser_certification, getUsers } from "@/api";
+import { SCRForm } from "../ui/form/SCRForm";
+import { SCRTable } from "../ui/table/SCRTable";
+import { ResultDataSearch } from "@/interfaces";
 
-
-
-
-type Inputs = {
-    name?: string
-    certificationName?: string
+interface Data {
+    uid: string;
+    name: string;
+    ci: string;
+    certification: string;
 }
-
-
-
 
 export const SCRGrid = () => {
 
-    const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
+    const [allData, setAllData] = useState<ResultDataSearch>({
+        user_certifications: [],
+        users: [],
+        certifications: []
+    });
+    const [dataToShow, setDataToShow] = useState<Data[]>([]);
 
+    const loadUser_certifications = async () => {
+        const res = await getUser_certification();
+        return res.data.user_certifications;
+    };
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const loadUsers = async () => {
+        const res = await getUsers();
+        return res.data.users;
+    };
 
-        try {
-            // const res = await login(data);
-            console.log(data)
+    const loadCertifications = async () => {
+        const res = await getCertification();
+        return res.data.certifications;
+    };
 
+    useEffect(() => {
+        const loadData = async () => {
+            const [userCertifications, users, certifications] = await Promise.all([
+                loadUser_certifications(),
+                loadUsers(),
+                loadCertifications()
+            ]);
 
-        } catch (error: any) {
-            console.log("msg:", error.response.data.msg)
-        }
+            setAllData({
+                user_certifications: userCertifications,
+                users: users,
+                certifications: certifications
+            });
 
-    }
+            const data = userCertifications.map((userCert: any) => {
+                const user = users.find((u: any) => u.uid === userCert.userId);
+                const certification = certifications.find((c: any) => c.uid === userCert.certificationId);
+
+                if (user && certification) {
+                    return {
+                        uid: userCert.uid,
+                        name: user.name,
+                        ci: user.ci,
+                        certification: certification.name,
+                    };
+                }
+                return null;
+            });
+
+            setDataToShow(data.filter((item: any) => item !== null));
+        };
+
+        loadData();
+    }, []);
 
     return (
-        <div className="bg-[--page_background2] h-screen p-10 text-center">
+        <>
+            <section className="bg-[--page_background2] min-h-screen p-10">
+                <h3 className="subTitle mb-2">Buscar por nombre o número de certificado</h3>
+                <div className="w-full h-[2px] bg-blue-950 mb-8"></div>
 
+                <div className="lg:flex justify-between">
+                    <SCRForm
+                        // setResultDataSearch={setAllData}
+                        setDataToShow={setDataToShow}
+                        allData={allData}
+                    />
 
-            <h3 className="subTitle mb-2">Buscar por nombre o número de certificado</h3>
-            {/* Separador */}
-            <div className="w-full h-[2px] bg-blue-950 mb-8"></div>
-
-
-
-            <form
-                // className=""
-                onSubmit={handleSubmit(onSubmit)}
-            >
-                <div className="flex justify-evenly">
-                    <FormControl className='my-4'>
-                        <TextField
-                            id="outlined-basic"
-                            label="Nombre completo"
-                            variant="outlined"
-                            sx={errors.name ? sxError : sxCorrect}
-                            helperText={errors.name && errors.name.message}
-                            error={errors.name ? true : false}
-                            {...register("name")}
-                        />
-                    </FormControl>
-
-                    <FormControl className='my-4'>
-                        <TextField
-                            id="outlined-basic"
-                            label="Carnet de identidad"
-                            variant="outlined"
-                            sx={errors.certificationName ? sxError : sxCorrect}
-                            helperText={errors.certificationName && errors.certificationName.message}
-                            error={errors.certificationName ? true : false}
-                            {...register("certificationName")}
-                        />
-                    </FormControl>
-
+                    <SCRTable dataToShow={dataToShow || []} />
                 </div>
+            </section>
 
-                {
-                    showAdvancedOptions && (
-                        <div className="flex justify-evenly">
-                            <FormControl className='my-4'>
-                                <TextField
-                                    id="outlined-basic"
-                                    label="Nombre completo *"
-                                    variant="outlined"
-                                    sx={errors.name ? sxError : sxCorrect}
-                                    helperText={errors.name && errors.name.message}
-                                    error={errors.name ? true : false}
-                                    {...register("name", {
-                                        required: 'El campo es requerido',
-                                    })}
-                                />
-                            </FormControl>
-
-                            <FormControl className='my-4'>
-                                <TextField
-                                    id="outlined-basic"
-                                    label="Nombre completo *"
-                                    variant="outlined"
-                                    sx={errors.name ? sxError : sxCorrect}
-                                    helperText={errors.name && errors.name.message}
-                                    error={errors.name ? true : false}
-                                    {...register("name", {
-                                        required: 'El campo es requerido',
-                                    })}
-                                />
-                            </FormControl>
-
-                        </div>
-                    )
-                }
-
-
-
-                <div>
-                    <Button
-                        variant="contained"
-                        size='large'
-                        type='submit'
-                        className='btn-primary shadow-lg min-w-[200px] m-4'
-                    >
-                        Buscar
-                    </Button>
-
-                    <Button
-                        onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
-                        variant="contained"
-                        size='large'
-                        type='button'
-
-                        className='btn-secondary shadow-lg m-4'
-                    >
-                        Mostrar opciones avanzadas
-                    </Button>
-
-                </div>
-
-
-            </form>
-
-
-
-
-        </div>
-    )
-}
+            <button onClick={() => console.log(allData)}>click aki</button>
+        </>
+    );
+};

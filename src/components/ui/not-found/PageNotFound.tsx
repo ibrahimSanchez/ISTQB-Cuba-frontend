@@ -11,7 +11,7 @@ export const PageNotFound = () => {
         >
 
             <div className="text-center px-5 mx-5">
-                <h2 className="antialiased text-[--primary] text-9xl">404</h2>
+                {/* <h2 className="antialiased text-[--primary] text-9xl">404</h2> */}
                 <p className="font-semibold text-[--text_color] text-xl mt-5">Lo sentimos mucho</p>
                 <p
                     className="font-light"

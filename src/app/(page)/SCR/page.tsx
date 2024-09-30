@@ -4,9 +4,9 @@ import Image from "next/image"
 export default function CandidateRegistryPage() {
   return (
     <>
-      <div className="px-8 sm:px-14">
+      <div className="px-8 sm:px-14 mt-8">
 
-        <h1 className="title mb-2">Registro de Candidatos Seleccionados</h1>
+        <h1 className="title mb-2">Registro de candidatos seleccionados</h1>
         {/* Separador */}
         <div className="w-full h-1 bg-blue-950 mb-8"></div>
 
@@ -45,7 +45,10 @@ export default function CandidateRegistryPage() {
       </div>
 
 
+
       <SCRGrid />
+
+
     </>
 
   );

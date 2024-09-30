@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { IoTrash } from 'react-icons/io5';
 import { FaCheckCircle } from "react-icons/fa";
-import { Reservation, DataModal, User, Certification } from '@/interfaces';
-import { deleteArrayReservation, deleteReservation, putReservation } from '@/api';
+import { User_certification, DataModal, User, Certification } from '@/interfaces';
+import { deleteArrayReservation, deleteArrayUser_certification, deleteReservation, deleteUser_certification, putReservation, putUser_certification } from '@/api';
 import { ModalAnswer, ModalOption } from '@/components';
 import Link from 'next/link';
 import { IconButton, Tooltip } from '@mui/material';
@@ -12,39 +12,39 @@ import { IconButton, Tooltip } from '@mui/material';
 
 
 interface Props {
-    reservations: Reservation[];
+    user_certifications: User_certification[];
     users: User[];
     certifications: Certification[];
-    setLoadReservationData: Function;
-    loadReservationData: boolean;
+    setLoadUser_certificationsData: Function;
+    loadUser_certificationsData: boolean;
 }
 
 
 
 
-export const ReservationTable = ({
-    reservations,
-    loadReservationData,
-    setLoadReservationData,
+export const User_certificationTable = ({
+    user_certifications,
+    loadUser_certificationsData,
+    setLoadUser_certificationsData,
     users,
     certifications
 }: Props) => {
 
 
-    const [selectedReservations, setSelectedReservations] = useState<string[]>([]);
+    const [selectedUser_certifications, setSelectedUser_certifications] = useState<string[]>([]);
 
     const handleSelect = (id: string) => {
-        setSelectedReservations(prev =>
-            prev.includes(id) ? prev.filter(reservationId => reservationId !== id) : [...prev, id]
+        setSelectedUser_certifications(prev =>
+            prev.includes(id) ? prev.filter(user_certificationId => user_certificationId !== id) : [...prev, id]
         );
     };
 
     const [isModalOptionOpen, setModalOptionOpen] = useState(false);
     const [textOptionModal, setTextOptionModal] = useState('Está seguro de eliinar la reservación?');
-    const [reservationIdSelected, setReservationIdSelected] = useState('');
+    const [user_certificationIdSelected, setUser_certificationIdSelected] = useState('');
 
     const toggleModalOption = (id: any) => {
-        setReservationIdSelected(id);
+        setUser_certificationIdSelected(id);
         setModalOptionOpen(!isModalOptionOpen);
     };
 
@@ -66,50 +66,25 @@ export const ReservationTable = ({
 
     const actionDeleteReservation = async () => {
 
-        if (selectedReservations.length === 0) {
+        if (selectedUser_certifications.length === 0) {
             try {
-                const res = await deleteReservation(reservationIdSelected);
+                const res = await deleteUser_certification(user_certificationIdSelected);
                 // console.log(res)
 
                 const msgModal: DataModal = {
-                    title: 'Eliminar reservación',
+                    title: 'Eliminar istoria de certificación',
                     text: res.data.msg
                 }
                 setDataModal(msgModal)
                 toggleModal();
 
-                setLoadReservationData(!loadReservationData);
+                setLoadUser_certificationsData(!loadUser_certificationsData);
 
             } catch (error: any) {
                 // console.log(error)
                 setIsError(true);
                 const msgModal: DataModal = {
-                    title: 'Eliminar reservación',
-                    text: error.response.data.msg
-                }
-                setDataModal(msgModal)
-                toggleModal();
-                // console.log(error.response.data.msg);
-            }
-        } else {
-            try {
-                const res = await deleteArrayReservation(selectedReservations);
-                // console.log(res)
-
-                const msgModal: DataModal = {
-                    title: 'Eliminar reservaciones',
-                    text: res.data.msg
-                }
-                setDataModal(msgModal)
-                toggleModal();
-                setSelectedReservations([]);
-                setLoadReservationData(!loadReservationData);
-
-            } catch (error: any) {
-                // console.log(error)
-                setIsError(true);
-                const msgModal: DataModal = {
-                    title: 'Eliminar reservaciones',
+                    title: 'Eliminar historia de certificación',
                     text: error.response.data.msg
                 }
                 setDataModal(msgModal)
@@ -117,22 +92,47 @@ export const ReservationTable = ({
                 // console.log(error.response.data.msg);
             }
         }
+        else {
+            try {
+                const res = await deleteArrayUser_certification(selectedUser_certifications);
+                // console.log(res)
+                
+                const msgModal: DataModal = {
+                    title: 'Eliminar historias de certificación',
+                    text: res.data.msg
+                }
+                setDataModal(msgModal)
+                toggleModal();
+                setSelectedUser_certifications([]);
+                setLoadUser_certificationsData(!loadUser_certificationsData);
 
+            } catch (error: any) {
+                // console.log(error)
+                setIsError(true);
+                const msgModal: DataModal = {
+                    title: 'Eliminar historias de certificación',
+                    text: error.response.data.msg
+                }
+                setDataModal(msgModal)
+                toggleModal();
+                // console.log(error.response.data.msg);
+            }
+        }
     }
 
 
-    const approvedReservation = async (id: string) => {
+    const completedUser_certifications = async (id: string) => {
         try {
-            const res = await putReservation(id, { approved: true });
+            const res = await putUser_certification(id, { completed: true });
             // console.log(res)
             const msgModal: DataModal = {
-                title: 'Aceptar reservación',
-                text: 'Reservación aceptada'
+                title: 'Completar certificación',
+                text: 'Certificación completada'
             }
             setDataModal(msgModal)
             toggleModal();
 
-            setLoadReservationData(!loadReservationData);
+            setLoadUser_certificationsData(!loadUser_certificationsData);
 
         } catch (error: any) {
             // console.log(error)
@@ -177,10 +177,10 @@ export const ReservationTable = ({
                                 <input
                                     type="checkbox"
                                     onChange={() => {
-                                        if (selectedReservations.length === reservations.length) {
-                                            setSelectedReservations([]);
+                                        if (selectedUser_certifications.length === user_certifications.length) {
+                                            setSelectedUser_certifications([]);
                                         } else {
-                                            setSelectedReservations(reservations.map(({ uid }) => uid));
+                                            setSelectedUser_certifications(user_certifications.map(({ uid }) => uid));
                                         }
                                     }}
                                 />
@@ -192,19 +192,19 @@ export const ReservationTable = ({
                         </tr>
                     </thead>
                     <tbody>
-                        {reservations.length === 0 ? (
+                        {user_certifications.length === 0 ? (
                             <tr>
                                 <td colSpan={5} className="text-center p-4 text-[--text_color]">
                                     No hay reservaciones disponibles
                                 </td>
                             </tr>
                         ) : (
-                            reservations.map(({ uid, approved, certificationId, userId }) => (
+                            user_certifications.map(({ uid, completed, certificationId, userId }) => (
                                 <tr key={uid} className='text-[--text_color]'>
                                     <td className="p-4 border border-slate-700">
                                         <input
                                             type="checkbox"
-                                            checked={selectedReservations.includes(uid)}
+                                            checked={selectedUser_certifications.includes(uid)}
                                             onChange={() => handleSelect(uid)}
                                         />
                                     </td>
@@ -214,14 +214,14 @@ export const ReservationTable = ({
                                             {certifications.find((certification) => certification.uid === certificationId)?.name}
                                         </Link>
                                     </td>
-                                    <td className="p-4 border border-slate-700">{approved ? 'Aprobada' : 'Pendiente'}</td>
+                                    <td className="p-4 border border-slate-700">{completed ? 'Completada' : 'Pendiente'}</td>
                                     <td className="p-4 border border-slate-700">
 
-                                        <Tooltip title="Aprobar">
+                                        <Tooltip title="Marcar como completada">
                                             <IconButton
-                                                disabled={approved || (selectedReservations.length === 0 ? false : true)}
+                                                disabled={completed || (selectedUser_certifications.length === 0 ? false : true)}
                                                 className='text-[--primary] hover:text-[--secondary] mr-5'
-                                                onClick={() => approvedReservation(uid)}
+                                                onClick={() => completedUser_certifications(uid)}
                                             >
                                                 <FaCheckCircle size={20} />
                                             </IconButton>
@@ -229,7 +229,7 @@ export const ReservationTable = ({
 
                                         <Tooltip title="Eliminar">
                                             <IconButton
-                                                disabled={selectedReservations.length === 0 ? false : true}
+                                                disabled={selectedUser_certifications.length === 0 ? false : true}
                                                 className='text-red-500 hover:text-red-700 mr-5'
                                                 onClick={() => toggleModalOption(uid || '')}
                                             >
@@ -246,8 +246,8 @@ export const ReservationTable = ({
 
             <div className='flex justify-between mt-6'>
                 <button
-                    disabled={selectedReservations.length === 0 ? true : false}
-                    onClick={() => toggleModalOption(selectedReservations)}
+                    disabled={selectedUser_certifications.length === 0 ? true : false}
+                    onClick={() => toggleModalOption(selectedUser_certifications)}
                     className='bg-red-500 hover:bg-red-700 text-white p-2 rounded-md'
 
                 >

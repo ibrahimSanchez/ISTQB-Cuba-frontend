@@ -30,11 +30,12 @@ export const FilterData = ({ setDataToShow, allData, filterCriteria }: Props) =>
 
         if (criteriaSelect != 'all') {
 
-            const data = allData.filter(d =>
-                d.approved === (criteriaSelect === 'true' ? true : false)
+            const data = allData.filter(d =>(
+                d.approved === (criteriaSelect === 'true' ? true : false) || 
+                d.completed === (criteriaSelect === 'true' ? true : false)            
+            )
             );
             setDataToShow(data);
-
         }
         else setDataToShow(allData);
 

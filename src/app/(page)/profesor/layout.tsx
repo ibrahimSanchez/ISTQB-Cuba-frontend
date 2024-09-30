@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { FaHome, FaPlus } from 'react-icons/fa';
 import Link from 'next/link';
 import { IconButton, Tooltip } from '@mui/material';
-import { MdManageAccounts } from 'react-icons/md';
+import { MdHistoryEdu, MdManageAccounts } from 'react-icons/md';
 
 export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode;
@@ -22,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{
             {
               clsx({
                 "Administración de certificaciones": pathname === '/profesor',
+                "Gestión de historial de certificaciones": pathname === '/profesor/manageCertificationHistory',
                 "Añadir certificación": pathname === '/profesor/manageCertifications/addCertifications',
                 "Gestión de reservaciones": pathname === '/profesor/manageReservations',
                 "Modificar certificación": pathname.includes("/profesor/manageCertifications/updateCertification/")
@@ -29,63 +30,90 @@ export default function RootLayout({ children }: Readonly<{
             }
           </h1>
 
-          <div className="sm:flex space-x-4 mb-2 text-center">
+          <div className="sm:flex space-x-1 mb-2 text-center">
 
-            <Tooltip title="Certificaciones">
-              <IconButton>
-                <Link href="/profesor" className={
-                  clsx(
-                    "btnLink",
-                    {
-                      "btnLinkActive": pathname === '/profesor'
-                    }
-                  )
-                }>
-                  <FaHome
-                    size={20}
-                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
-                  />
-                </Link>
-              </IconButton>
-            </Tooltip>
+            <div>
+              <Tooltip title="Certificaciones">
+                <IconButton>
+                  <Link href="/profesor" className={
+                    clsx(
+                      "btnLink",
+                      {
+                        "btnLinkActive": pathname === '/profesor'
+                      }
+                    )
+                  }>
+                    <FaHome
+                      size={20}
+                      className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                    />
+                  </Link>
+                </IconButton>
+              </Tooltip>
+            </div>
 
-            <Tooltip title="Agregar Certificación">
-              <IconButton>
-                <Link href="/profesor/manageCertifications/addCertifications" className={
-                  clsx(
-                    "btnLink",
-                    {
-                      "btnLinkActive": pathname === '/profesor/manageCertifications/addCertifications'
-                    }
-                  )
-                }>
-                  <FaPlus
-                    size={20}
-                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
-                  />
+            <div>
+              <Tooltip title="Agregar Certificación">
+                <IconButton>
+                  <Link href="/profesor/manageCertifications/addCertifications" className={
+                    clsx(
+                      "btnLink",
+                      {
+                        "btnLinkActive": pathname === '/profesor/manageCertifications/addCertifications'
+                      }
+                    )
+                  }>
+                    <FaPlus
+                      size={20}
+                      className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                    />
 
-                </Link>
-              </IconButton>
-            </Tooltip>
+                  </Link>
+                </IconButton>
+              </Tooltip>
+            </div>
 
-            <Tooltip title="Gestionar Reservaciones">
-              <IconButton>
+            <div>
+              <Tooltip title="Gestionar Reservaciones">
+                <IconButton>
 
-                <Link href="/profesor/manageReservations" className={
-                  clsx(
-                    "btnLink",
-                    {
-                      "btnLinkActive": pathname === '/profesor/manageReservations'
-                    }
-                  )
-                }>
-                  <MdManageAccounts
-                    size={30}
-                    className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
-                  />
-                </Link>
-              </IconButton>
-            </Tooltip>
+                  <Link href="/profesor/manageReservations" className={
+                    clsx(
+                      "btnLink",
+                      {
+                        "btnLinkActive": pathname === '/profesor/manageReservations'
+                      }
+                    )
+                  }>
+                    <MdManageAccounts
+                      size={30}
+                      className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                    />
+                  </Link>
+                </IconButton>
+              </Tooltip>
+            </div>
+
+            <div>
+              <Tooltip title="Historial de certiicaciones">
+                <IconButton>
+
+                  <Link href="/profesor/manageCertificationHistory" className={
+                    clsx(
+                      "btnLink",
+                      {
+                        "btnLinkActive": pathname === '/profesor/manageCertificationHistory'
+                      }
+                    )
+                  }>
+                    <MdHistoryEdu
+                      size={30}
+                      className='gradient-card2 w-8 h-8 p-2 rounded-full text-white'
+                    />
+                  </Link>
+                </IconButton>
+              </Tooltip>
+            </div>
 
           </div>
         </div>

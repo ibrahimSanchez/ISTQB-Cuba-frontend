@@ -151,6 +151,7 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                             </th>
                             <th className="p-4 border border-slate-600 text-start">Nombre</th>
                             <th className="p-4 border border-slate-600 text-start">Correo</th>
+                            <th className="p-4 border border-slate-600 text-start">CI</th>
                             <th className="p-4 border border-slate-600 text-start">Rol</th>
                             <th className="p-4 border border-slate-600 text-start">Operaciones</th>
                         </tr>
@@ -174,6 +175,7 @@ export const UserTable = ({ users, loadUserData, setLoadUserData }: Props) => {
                                     </td>
                                     <td className="p-4 border border-slate-700">{user.name}</td>
                                     <td className="p-4 border border-slate-700">{user.email}</td>
+                                    <td className="p-4 border border-slate-700">{user.ci}</td>
                                     <td className="p-4 border border-slate-700">{user.role}</td>
                                     <td className="p-4 border border-slate-700">
 

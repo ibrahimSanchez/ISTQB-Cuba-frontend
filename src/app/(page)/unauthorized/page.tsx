@@ -30,7 +30,7 @@ export default function Home() {
     <div className="flex flex-col-reverse md:flex-row h-[800px] w-full justify-center items-center align-middle">
 
       <div className="text-center px-5 mx-5">
-        <h2 className="antialiased text-[--primary] text-9xl">401</h2>
+        {/* <h2 className="antialiased text-[--primary] text-9xl">401</h2> */}
         <p className="font-semibold text-[--text_color] text-xl mt-5">Lo siento, no tiene acceso a la página solicitada.</p>
         <p
           className="font-light"
